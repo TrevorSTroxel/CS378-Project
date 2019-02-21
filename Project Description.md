@@ -10,4 +10,7 @@ What I want to do is that I want to make a Google Docs add-on that makes it more
 6. You can create more files (.h and .cpp files) while working on it.
 7. Once you are done with it, you can export it into a readable file format for visual studio to read.
 
-Some ideas that I have to start working one this project is that I can see how Visual Studio is made and see how it works and try and impliment what it has into a google docs add-on.
+Some ideas that I have to start working one this project is:
+1. an see how Visual Studio is made and see how it works and try and impliment what it has into a google docs add-on. Another idea is that 2.an see what componets that i need for a google docs, such as the UML and other things like that, and try to implement them slowly.
+
+say: hello world -> cout << "hello world" << endl;
