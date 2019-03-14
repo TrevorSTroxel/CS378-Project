@@ -1,9 +1,9 @@
 # CS378-Project
 CS378 Project
-Since I lost my partner, this may be a completely different project by the end of this, but this is what I want to do:
-What I want to do is that I want to make a Code translator as a google docs add-on.
+This may be a completely different project by the end of this, but this is what I want to do:
+What I want to do is that I want to make a Code translator.
 1. I needs to be able to recognize key words and follow that pattern I set in place for it.
-2. The translator needs to be able to recognize the colon, grab the word that comes before the colon, and then run its translation
+2. The translator needs to be able to recognize the word and then execute the proper sequence.
 3. The big keywords that I would need for the translator to:
 say: = cout << << endl;
 if: = if()
