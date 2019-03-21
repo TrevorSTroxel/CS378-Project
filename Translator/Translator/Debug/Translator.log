@@ -1,2 +1,3 @@
 ﻿  Translator.cpp
+c:\users\ttroxel21\desktop\translator\translator\translator.cpp(26): warning C4018: '<': signed/unsigned mismatch
   Translator.vcxproj -> C:\Users\ttroxel21\Desktop\Translator\Debug\Translator.exe
