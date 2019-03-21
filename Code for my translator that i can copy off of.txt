@@ -1,0 +1,522 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+using namespace std;
+//What this is is babies first coding is what this really is. 
+//This is still a massive work in progress, so there is not much right now, but more will progress will be made. So far only one and two work.
+
+
+/*string sen, sub;
+int pos;
+cout << "Enter the Sentence" << endl;
+getline(cin, sen);
+cout << "Enter string to find" << endl;
+cin >> sub;
+for (int i = 1; (pos = sen.find(sub)) != -1; i++)
+{
+sen = sen.substr(++pos);
+cout << "Found = " << sub << " " << i << " Times" << endl;
+}*/
+//my code idea came from https://stackoverflow.com/questions/13565907/c-find-word-in-sentence
+
+void Crepeat();
+void Jrepeat();
+
+int main()
+{
+cout << "This is my Code Translator Project.\n" << 
+"This will allow you to see how to write out code in several different languages.\n" << 
+"The list of aviable languages are: C++, Java\n" << 
+"More langages and features will be added as the project moves along.\n" <<
+"Please enter the name of the language that you want to see.\n";
+
+string prompt;
+cin >> prompt;
+
+	if (prompt == "C++")
+	{
+		cout << "Here is a list of commands:" << endl;
+		cout << "say: = cout << (your sentence) << endl;\n" << 
+		"if: = if (conditions)\n" << 
+		"elseif: = else if (conditions)\n" << 
+		"else: = else\n" << 
+		"for: = for(initialization; condition ; increment/decrement)\n" << 
+		"while: = while (Boolean_expression)\n" << 
+		"value: = int\n" << 
+		"bigValue: = double\n" << 
+		"pointValue: float\n" << 
+		"sentence: = string\n" << 
+		"letter: = char\n\n" << 
+
+		//Not what I want for the final product, but an ok sub for the time. Come back to this because this is like putting a band-aid over a broken bone
+		"If you want to use any of these, just enter the name." << "Then you will get a promt to enter the two variables that you want and also calculate it for you.\n" <<
+		"equal: = =\n" << 
+		"equivalent: = ==\n" << 
+		"notEquivalent: = !=\n" <<
+		"module: = %\n" << 
+		"subtract: = -\n" << 
+		"add: = +\n" << 
+		"multiply: = *\n" <<
+		"divide: = /\n" << endl;
+
+		cout << "If you want a list of commands again, type commands: see" << endl;
+		cout << "What function do you want to run? EX: say: hello world" << endl;
+
+	Crepeat();
+	}
+
+	else if (prompt == "Java")
+	{
+		cout << "Here is a list of commands:" << endl;
+		cout << "say: = System.out.println(your sentence)\n" <<
+			"if: = if (conditions)\n" <<
+			"elseif: = else if (conditions)\n" <<
+			"else: = else\n" <<
+			"for: = for(initialization; condition ; increment/decrement)\n" <<
+			"while: = while (Boolean_expression)\n" <<
+			"value: = int\n" <<
+			"pointValue: float\n" <<
+			"sentence: = string\n" <<
+			"letter: = char\n\n" <<
+
+			//Not what I want for the final product, but an ok sub for the time. Come back to this because this is like putting a band-aid over a broken bone
+			"If you want to use any of these, just enter the name." << "Then you will get a promt to enter the two variables that you want and also calculate it for you.\n" <<
+			"equal: = =\n" <<
+			"equivalent: = ==\n" <<
+			"notEquivalent: = !=\n" <<
+			"module: = %\n" <<
+			"subtract: = -\n" <<
+			"add: = +\n" <<
+			"multiply: = *\n" <<
+			"divide: = /\n" << endl;
+
+	Jrepeat();
+	}
+
+	else
+	{
+		cout << "You did a bad, stop it." << endl;
+	}
+}
+
+void Crepeat()
+{
+	string sen, sub;
+
+	cin >> sub;
+	getline(cin, sen);
+
+	//function to grab the sentence without grabbing the blank space at the beggining
+	int i;
+	string newSen = "";
+	for (i = 1; i < sen.length(); i++)
+	{
+	newSen += sen.at(i);
+	}
+
+	if (sub == "say:")
+	{
+		cout << "cout << \"" << newSen << "\" << endl;\n";
+	}
+
+	else if (sub == "if:")
+	{
+		cout << "What is the code for this if statement?\n";
+		string code;
+		getline(cin, code);
+
+		cout << "if (" << newSen << ")" << endl;
+		cout << "{" << endl << code << endl << "}\n\n";
+	}
+
+	else if (sub == "elseif:")
+	{
+		cout << "What is the code for this if statement?\n";
+		string code;
+		getline(cin, code);
+
+		cout << "else if (" << newSen << ")" << endl;
+		cout << "{" << endl << code << endl << "}\n\n";
+	}
+
+	else if (sub == "else:")
+	{
+		cout << "What is the code for this else statement?\n";
+		string code;
+		getline(cin, code);
+
+		cout << "{" << endl << code << endl << "}\n\n";
+	}
+
+	else if (sub == "for:")
+	{
+		cout << "What is the code for this for statement?\n";
+		string code;
+		getline(cin, code);
+
+		cout << "for (" << newSen << ")" << endl;
+		cout << "{" << endl << code << endl << "}\n\n";
+	}
+
+	else if (sub == "while:")
+	{
+		cout << "What is the code for this while statement?\n";
+		string code;
+		getline(cin, code);
+
+		cout << "while (" << newSen << ")" << endl;
+		cout << "{" << endl << code << endl << "}\n\n";
+	}
+
+	else if (sub == "value:")
+	{
+		cout << "int" << newSen << endl;
+	}
+
+	else if (sub == "bigValue:" || sub == "bigvalue:")
+	{
+		cout << "double" << newSen << endl;
+	}
+
+	else if (sub == "pointValue:" || sub == "pointvalue:")
+	{
+		cout << "float" << newSen << endl;
+	}
+
+	else if (sub == "sentence:")
+	{
+		cout << "string " << newSen << endl;
+	}
+
+	else if (sub == "letter:")
+	{
+		cout << "char " << newSen << endl;
+	}
+
+	//Not what I want for the final product, but an ok substitute for the time. Come back to this because this is like putting a band-aid over a broken bone
+	else if (sub == "equal:")
+	{
+		cout << "What variable and what number do you want?\n";
+		string var;
+		int num;
+		cin >> var;
+		cin >> num;
+		cout << var << " = " << num << endl;
+	}
+
+	else if (sub == "equivalent:")
+	{
+		cout << "What two variables do you want?\n";
+		string num1, num2;
+		cin >> num1;
+		cin >> num2;
+		cout << num1 << " == " << num2 << endl;
+	}
+
+	else if (sub == "notEquivalent:" || sub == "notequivalent:")
+	{
+		cout << "What two variables do you want?\n";
+		string num1, num2;
+		cin >> num1;
+		cin >> num2;
+		cout << num1 << " != " << num2 << endl;
+	}
+	
+	else if (sub == "module:")
+	{
+		cout << "What two numbers do you want to modulate?\n";
+		int num1, num2;
+		cin >> num1;
+		cin >> num2;
+		int x = num1 % num2;
+		cout << num1 << " % " << num2 << " = " << x << endl;
+	}
+
+	else if (sub == "subtract:")
+	{
+		cout << "What two numbers do you want to subtract?\n";
+		int num1, num2;
+		cin >> num1;
+		cin >> num2;
+		int x = num1 - num2;
+		cout << num1 << " - " << num2 << " = " << x << endl;
+	}
+
+	else if (sub == "add")
+	{
+		cout << "What two numbers do you want to add?\n";
+		int num1, num2;
+		cin >> num1;
+		cin >> num2;
+		int x = num1 + num2;
+		cout << num1 << " + " << num2 << " = " << x << endl;
+	}
+
+	else if (sub == "multiply:")
+	{
+		cout << "What two numbers do you want to multiply?\n";
+		int num1, num2;
+		cin >> num1;
+		cin >> num2;
+		int x = num1 * num2;
+		cout << num1 << " * " << num2 << " = " << x << endl;
+	}
+
+	else if (sub == "divide:")
+	{
+		cout << "What two numbers do you want to divide?\n";
+		int num1, num2;
+		cin >> num1;
+		cin >> num2;
+		int x = num1 % num2;
+		cout << num1 << " % " << num2 << " = " << x << endl;
+	}
+
+	else if (sub == "commands:")
+	{
+		cout << "say: = cout << (your sentence) << endl;\n" <<
+		"if: = if (conditions)\n" <<
+		"elseif: = else if (conditions)\n" <<
+		"else: = else\n" <<
+		"for: = for(initialization; condition ; increment/decrement)\n" <<
+		"while: = while (Boolean_expression)\n" <<
+		"value: = int\n" <<
+		"bigValue: = double\n" <<
+		"pointValue: float\n" <<
+		"sentence: = string\n" <<
+		"letter: = char\n\n" <<
+
+		//Not what I want for the final product, but an ok sub for the time. Come back to this because this is like putting a band-aid over a broken bone
+		"If you want to use any of these, just enter the name." << "Then you will get a promt to enter the two variables that you want and also calculate it for you.\n" <<
+		"equal: = =\n" <<
+		"equivalent: = ==\n" <<
+		"notEquivalent: = !=\n" <<
+		"module: = %\n" <<
+		"subtract: = -\n" <<
+		"add: = +\n" <<
+		"multiply: = *\n" <<
+		"divide: = /\n" << endl;
+	}
+
+	else
+	{
+		cout << "That was not something on the list, please try again." << endl;
+	}
+
+Crepeat();
+}
+
+void Jrepeat()
+{
+	string sen, sub;virt
+
+	cin >> sub;
+	getline(cin, sen);
+
+	//function to grab the sentence without grabbing the blank space at the start
+	int i;
+	string newSen = "";
+	for (i = 1; i < sen.length(); i++)
+	{
+		newSen += sen.at(i);
+	}
+
+	if (sub == "say:")
+	{
+		cout << "System.out.println(\"" << newSen << "\")" << endl;
+	}
+
+	else if (sub == "if:")
+	{
+		cout << "What is the code for this if statement?\n";
+		string code;
+		getline(cin, code);
+
+		cout << "if (" << newSen << ")" << endl;
+		cout << "{" << endl << code << endl << "}\n\n";
+	}
+
+	else if (sub == "elseif:")
+	{
+		cout << "What is the code for this if statement?\n";
+		string code;
+		getline(cin, code);
+
+		cout << "else if (" << newSen << ")" << endl;
+		cout << "{" << endl << code << endl << "}\n\n";
+	}
+
+	else if (sub == "else:")
+	{
+		cout << "What is the code for this else statement?\n";
+		string code;
+		getline(cin, code);
+		cout << "{" << endl << code << endl << "}\n\n";
+	}
+
+	else if (sub == "for:")
+	{
+		cout << "What is the code for this for statement?\n";
+		string code;
+		getline(cin, code);
+
+		cout << "for (" << newSen << ")" << endl;
+		cout << "{" << endl << code << endl << "}\n\n";
+	}
+
+	else if (sub == "while:")
+	{
+		cout << "What is the code for this while statement?\n";
+		string code;
+		getline(cin, code);
+
+		cout << "while (" << newSen << ")" << endl;
+		cout << "{" << endl << code << endl << "}\n\n";
+	}
+
+	else if (sub == "value:")
+	{
+		cout << "int" << newSen << endl;
+	}
+
+	else if (sub == "pointValue:" || sub == "pointvalue:")
+	{
+		cout << "float" << newSen << endl;
+	}
+
+	else if (sub == "sentence:")
+	{
+		cout << "string " << newSen << endl;
+	}
+
+	else if (sub == "letter:")
+	{
+		cout << "char" << newSen << endl;
+	}
+
+	//Not what I want for the final product, but an ok substitute for the time. Come back to this because this is like putting a band-aid over a broken bone
+	else if (sub == "equal:")
+	{
+		cout << "Here is a slight language difference between C++ and Java.\n" <<
+		"In C++, A = 9 is: A is equal to nine, where as in Java, A = 9 is: 9 is ASSIGNED to A.\n" <<
+		"Make sure you know what you are talking about.\n";
+
+		cout << "What variable and what number do you want?\n";
+		string var;
+		int num;
+		cin >> var;
+		cin >> num;
+		cout << var << " = " << num << endl;
+	}
+
+	else if (sub == "equivalent:")
+	{
+		cout << "Here is a slight language difference between C++ and Java.\n" <<
+		"In C++, A == 9 is: A is equivalent to nine, where as in Java, A == 9 is: 9 is EQUAL to A.\n" <<
+		"This is only useful for if you want to check if two numerical values are equal to one another.\n";
+
+		cout << "What variable and what number do you want?\n";
+		string num1, num2;
+		cin >> num1;
+		cin >> num2;
+		cout << num1 << " == " << num2 << endl;
+	}
+
+	else if (sub == "notEquivalent:" || sub == "notequivalent:")
+	{
+		cout << "Here is a slight language difference between C++ and Java.\n" <<
+		"In C++, A != 9 is: A is not equivalent to nine, where as in Java, A != 9 is: 9 is NOT EQUAL to A.\n" <<
+		"Make sure you know what you are talking about.\n";
+
+		cout << "What two variables do you want?\n";
+		string num1, num2;
+		cin >> num1;
+		cin >> num2;
+		cout << num1 << " != " << num2 << endl;
+	}
+
+	//come back too, incomplete
+	else if (sub == "module:")
+	{
+		cout << "What two numbers do you want to modulate?\n";
+		int num1, num2;
+		cin >> num1;
+		cin >> num2;
+		int x = num1 % num2;
+		cout << num1 << " % " << num2 << " = " << x << endl;
+	}
+
+	else if (sub == "subtract:")
+	{
+		cout << "What two numbers do you want to subtract?\n";
+		int num1, num2;
+		cin >> num1;
+		cin >> num2;
+		int x = num1 - num2;
+		cout << num1 << " - " << num2 << " = " << x << endl;
+	}
+
+	else if (sub == "add")
+	{
+		cout << "What two numbers do you want to add?\n";
+		int num1, num2;
+		cin >> num1;
+		cin >> num2;
+		int x = num1 + num2;
+		cout << num1 << " + " << num2 << " = " << x << endl;
+	}
+
+	else if (sub == "multiply:")
+	{
+		cout << "What two numbers do you want to multiply?\n";
+		int num1, num2;
+		cin >> num1;
+		cin >> num2;
+		int x = num1 * num2;
+		cout << num1 << " * " << num2 << " = " << x << endl;
+	}
+
+	else if (sub == "divide:")
+	{
+		cout << "What two numbers do you want to divide?\n";
+		int num1, num2;
+		cin >> num1;
+		cin >> num2;
+		int x = num1 / num2;
+		cout << num1 << " / " << num2 << " = " << x << endl;
+	}
+
+	else if (sub == "commands:")
+	{
+		cout << "say: = System.out.println(your sentence)\n" <<
+		"if: = if (conditions)\n" <<
+		"elseif: = else if (conditions)\n" <<
+		"else: = else\n" <<
+		"for: = for(initialization; condition ; increment/decrement)\n" <<
+		"while: = while (Boolean_expression)\n" <<
+		"value: = int\n" <<
+		"pointValue: float\n" <<
+		"sentence: = string\n" <<
+		"letter: = char\n\n" <<
+
+		//Not what I want for the final product, but an ok sub for the time. Come back to this because this is like putting a band-aid over a broken bone
+		"If you want to use any of these, just enter the name." << "Then you will get a promt to enter the two variables that you want and also calculate it for you.\n" <<
+		"equal: = =\n" <<
+		"equivalent: = ==\n" <<
+		"notEquivalent: = !=\n" <<
+		"module: = %\n" <<
+		"subtract: = -\n" <<
+		"add: = +\n" <<
+		"multiply: = *\n" <<
+		"divide: = /\n" << endl;
+	}
+
+	else
+	{
+		cout << "That was not something on the list, please try again." << endl;
+	}
+
+Jrepeat();
+}
+
+

@@ -1,0 +1,70 @@
+// ConsoleApplication1.cpp : Defines the entry point for the console application.
+//
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Language 
+{
+public:
+	virtual void say(string msg) = 0;
+};
+
+class CPP : public Language 
+{
+public:
+	virtual void say(string msg) 
+	{
+		cout << "cout << \"" << msg << "\" << endl;";
+	}
+};
+
+class Java : public Language 
+{
+public:
+	virtual void say(string msg) 
+	{
+		cout << "System.out.print(\"" << msg << "\");";
+	}
+};
+
+class Python : public Language 
+{
+public:
+	virtual void say(string msg) 
+	{
+		cout << "print(\"" << msg << "\");";
+	}
+};
+
+int main()
+{
+	cout << "choose c++ or java: ";
+	string lang;
+	cin >> lang;
+	cin.ignore();
+
+	Language *l = NULL;
+	if (lang == "c++")
+	{
+		l = new CPP();
+	}
+	else if (lang == "java")
+	{
+		l = new Java();
+	}
+
+	bool quit = false;
+
+	while (!quit) 
+	{
+		cout << "what command do you want? ";
+		string cmd;
+		getline(cin, cmd);
+
+		l->say(cmd);
+	}
+    return 0;
+}
+
