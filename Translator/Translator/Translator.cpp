@@ -10,7 +10,23 @@ class Language
 public:
 	virtual void trans_say(string msg) = 0;
 	virtual void trans_if(string expr, string bool_expr) = 0;
+	virtual void trans_elseif(string expr, string bool_expr) = 0;
+	virtual void trans_else(string expr, string bool_expr) = 0;
+	virtual void trans_for(string expr, string bool_expr) = 0;
 	virtual void trans_while(string expr, string bool_expr) = 0;
+	virtual void trans_value(string expr, string bool_expr) = 0;
+	virtual void trans_bigValue(string expr, string bool_expr) = 0;
+	virtual void trans_pointValue(string expr, string bool_expr) = 0;
+	virtual void trans_sentence(string expr, string bool_expr) = 0;
+	virtual void trans_letter(string expr, string bool_expr) = 0;
+	virtual void trans_equal(string expr, string bool_expr) = 0;
+	virtual void trans_equivalent(string expr, string bool_expr) = 0;
+	virtual void trans_notEquivalent(string expr, string bool_expr) = 0;
+	virtual void trans_module(string expr, string bool_expr) = 0;
+	virtual void trans_subtract(string expr, string bool_expr) = 0;
+	virtual void trans_add(string expr, string bool_expr) = 0;
+	virtual void trans_multiply(string expr, string bool_expr) = 0;
+	virtual void trans_divide(string expr, string bool_expr) = 0;
 
 	void getStatements() {
 		bool quit = false;
@@ -35,6 +51,33 @@ public:
 
 			else if (cmd == "if:")
 			{
+				cout << "What is the statement conditions?\n";
+				string bool_expr;
+				getline(cin, bool_expr);
+
+				trans_if(newSen, bool_expr);
+			}
+
+			else if (cmd == "elseif:")
+			{
+				cout << "What is the statement conditions?\n";
+				string bool_expr;
+				getline(cin, bool_expr);
+
+				trans_if(newSen, bool_expr);
+			}
+
+			else if (cmd == "else:")
+			{
+				cout << "What is the statement conditions?\n";
+				string bool_expr;
+				getline(cin, bool_expr);
+
+				trans_if(newSen, bool_expr);
+			}
+
+			else if (cmd == "for:")
+			{
 				cout << "What is the boolean expression?\n";
 				string bool_expr;
 				getline(cin, bool_expr);
@@ -49,6 +92,123 @@ public:
 				getline(cin, bool_expr);
 
 				trans_while(newSen, bool_expr);
+			}
+
+			else if (cmd == "value:")
+			{
+				cout << "What is the statement conditions?\n";
+				string bool_expr;
+				getline(cin, bool_expr);
+
+				trans_if(newSen, bool_expr);
+			}
+
+			else if (cmd == "bigValue:")
+			{
+				cout << "What is the statement conditions?\n";
+				string bool_expr;
+				getline(cin, bool_expr);
+
+				trans_if(newSen, bool_expr);
+			}
+
+			else if (cmd == "pointValue:")
+			{
+				cout << "What is the statement conditions?\n";
+				string bool_expr;
+				getline(cin, bool_expr);
+
+				trans_if(newSen, bool_expr);
+			}
+
+			else if (cmd == "sentence:")
+			{
+				cout << "What is the statement conditions?\n";
+				string bool_expr;
+				getline(cin, bool_expr);
+
+				trans_if(newSen, bool_expr);
+			}
+
+			else if (cmd == "letter:")
+			{
+				cout << "What is the statement conditions?\n";
+				string bool_expr;
+				getline(cin, bool_expr);
+
+				trans_if(newSen, bool_expr);
+			}
+
+			else if (cmd == "equal:")
+			{
+				cout << "What is the statement conditions?\n";
+				string bool_expr;
+				getline(cin, bool_expr);
+
+				trans_if(newSen, bool_expr);
+			}
+
+			else if (cmd == "equivalent:")
+			{
+			cout << "What is the statement conditions?\n";
+			string bool_expr;
+			getline(cin, bool_expr);
+
+			trans_if(newSen, bool_expr);
+			}
+
+			else if (cmd == "notEquivalent:")
+			{
+			cout << "What is the statement conditions?\n";
+			string bool_expr;
+			getline(cin, bool_expr);
+
+			trans_if(newSen, bool_expr);
+			}
+
+			else if (cmd == "module:")
+			{
+			cout << "What is the statement conditions?\n";
+			string bool_expr;
+			getline(cin, bool_expr);
+
+			trans_if(newSen, bool_expr);
+			}
+
+			else if (cmd == "subtract:")
+			{
+			cout << "What is the statement conditions?\n";
+			string bool_expr;
+			getline(cin, bool_expr);
+
+			trans_if(newSen, bool_expr);
+			}
+
+			else if (cmd == "add:")
+			{
+			cout << "What is the statement conditions?\n";
+			string bool_expr;
+			getline(cin, bool_expr);
+
+			trans_if(newSen, bool_expr);
+			}
+
+			else if (cmd == "multiply:")
+			{
+			cout << "What is the statement conditions?\n";
+			string bool_expr;
+			getline(cin, bool_expr);
+
+			trans_if(newSen, bool_expr);
+			}
+
+			else if (cmd == "divide:")
+			{
+			cout << "What is the statement conditions?\n";
+			string bool_expr;
+			getline(cin, bool_expr);
+
+			trans_if(newSen, bool_expr);
 			}
 
 			else
@@ -95,11 +255,108 @@ public:
 		getStatements();
 	}
 
+	virtual void trans_elseif(string expr, string bool_expr)
+	{
+		cout << "else if (" << expr << ")\n" << "{\n" << bool_expr << endl << "}\n";
+		getStatements();
+	}
+	virtual void trans_else(string expr, string bool_expr)
+	{
+		cout << "else (" << expr << ")\n" << "{\n" << bool_expr << endl << "}\n";
+		getStatements();
+	}
+
+	virtual void trans_for(string expr, string bool_expr)
+	{
+		cout << "for (" << expr << ")\n" << "{\n" << bool_expr << endl << "}\n";
+		getStatements();
+	}
+
 	virtual void trans_while(string expr, string bool_expr)
 	{
 		cout << "while (" << expr << ")\n" << "{\n" << bool_expr << endl << "}\n";
 		getStatements();
 	}
+
+	virtual void trans_value(string expr, string bool_expr)
+	{
+		cout << "int " << bool_expr << endl;
+		getStatements();
+	}
+
+	virtual void trans_bigValue(string expr, string bool_expr)
+	{
+		cout << "double " << bool_expr << endl;
+		getStatements();
+	}
+
+	virtual void trans_pointValue(string expr, string bool_expr)
+	{
+		cout << "float " << bool_expr << endl;
+		getStatements();
+	}
+
+	virtual void trans_sentence(string expr, string bool_expr)
+	{
+		cout << "string " << bool_expr << endl;
+		getStatements();
+	}
+
+	virtual void trans_letter(string expr, string bool_expr)
+	{
+		cout << "char " << bool_expr << endl;
+		getStatements();
+	}
+
+	/*virtual void trans_equal(string expr, string bool_expr)
+	{
+		cout << "int " << bool_expr << endl;
+		getStatements();
+	}
+	
+	virtual void trans_equivalent(string expr, string bool_expr)
+	{
+		cout << "int " << bool_expr << endl;
+		getStatements();
+	}
+
+	virtual void trans_notEquivalent(string expr, string bool_expr)
+	{
+		cout << "int " << bool_expr << endl;
+		getStatements();
+	}
+
+	virtual void trans_module(string expr, string bool_expr)
+	{
+		cout << "int " << bool_expr << endl;
+		getStatements();
+	}
+
+	virtual void trans_subtract(string expr, string bool_expr)
+	{
+		cout << "int " << bool_expr << endl;
+		getStatements();
+	}
+
+	virtual void trans_add(string expr, string bool_expr)
+	{
+		cout << "int " << bool_expr << endl;
+		getStatements();
+	}
+
+	virtual void trans_multiply(string expr, string bool_expr)
+	{
+		cout << "int " << bool_expr << endl;
+		getStatements();
+	}
+
+	virtual void trans_divide(string expr, string bool_expr)
+	{
+		cout << "int " << bool_expr << endl;
+		getStatements();
+	}
+
+	*/
 };
 
 class Java : public Language
@@ -116,11 +373,108 @@ public:
 		getStatements();
 	}
 
+	virtual void trans_elseif(string expr, string bool_expr)
+	{
+		cout << "else if (" << expr << ")\n" << "{\n" << bool_expr << endl << "}\n";
+		getStatements();
+	}
+	virtual void trans_else(string expr, string bool_expr)
+	{
+		cout << "else (" << expr << ")\n" << "{\n" << bool_expr << endl << "}\n";
+		getStatements();
+	}
+
+	virtual void trans_for(string expr, string bool_expr)
+	{
+		cout << "for (" << expr << ")\n" << "{\n" << bool_expr << endl << "}\n";
+		getStatements();
+	}
+
 	virtual void trans_while(string expr, string bool_expr)
 	{
 		cout << "while (" << expr << ")\n" << "{\n" << bool_expr << endl << "}\n";
 		getStatements();
 	}
+
+	virtual void trans_value(string expr, string bool_expr)
+	{
+		cout << "int " << bool_expr << endl;
+		getStatements();
+	}
+
+	virtual void trans_bigValue(string expr, string bool_expr)
+	{
+		cout << "double " << bool_expr << endl;
+		getStatements();
+	}
+
+	virtual void trans_pointValue(string expr, string bool_expr)
+	{
+		cout << "float " << bool_expr << endl;
+		getStatements();
+	}
+
+	virtual void trans_sentence(string expr, string bool_expr)
+	{
+		cout << "string " << bool_expr << endl;
+		getStatements();
+	}
+
+	virtual void trans_letter(string expr, string bool_expr)
+	{
+		cout << "char " << bool_expr << endl;
+		getStatements();
+	}
+
+	/*virtual void trans_equal(string expr, string bool_expr)
+	{
+		cout << "int " << bool_expr << endl;
+		getStatements();
+	}
+
+	virtual void trans_equivalent(string expr, string bool_expr)
+	{
+		cout << "int " << bool_expr << endl;
+		getStatements();
+	}
+
+	virtual void trans_notEquivalent(string expr, string bool_expr)
+	{
+		cout << "int " << bool_expr << endl;
+		getStatements();
+	}
+
+	virtual void trans_module(string expr, string bool_expr)
+	{
+		cout << "int " << bool_expr << endl;
+		getStatements();
+	}
+
+	virtual void trans_subtract(string expr, string bool_expr)
+	{
+		cout << "int " << bool_expr << endl;
+		getStatements();
+	}
+
+	virtual void trans_add(string expr, string bool_expr)
+	{
+		cout << "int " << bool_expr << endl;
+		getStatements();
+	}
+
+	virtual void trans_multiply(string expr, string bool_expr)
+	{
+		cout << "int " << bool_expr << endl;
+		getStatements();
+	}
+
+	virtual void trans_divide(string expr, string bool_expr)
+	{
+		cout << "int " << bool_expr << endl;
+		getStatements();
+	}
+
+	*/
 };
 
 /*class Python : public Language
