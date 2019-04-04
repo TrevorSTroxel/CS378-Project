@@ -145,7 +145,7 @@ public:
 				string bool_expr;
 				getline(cin, bool_expr);
 
-				trans_if(newSen, bool_expr);
+				trans_equal(newSen, bool_expr);
 			}
 
 			else if (cmd == "equivalent:")
@@ -154,7 +154,7 @@ public:
 			string bool_expr;
 			getline(cin, bool_expr);
 
-			trans_if(newSen, bool_expr);
+			trans_equivalent(newSen, bool_expr);
 			}
 
 			else if (cmd == "notEquivalent:")
@@ -163,7 +163,7 @@ public:
 			string bool_expr;
 			getline(cin, bool_expr);
 
-			trans_if(newSen, bool_expr);
+			trans_notEquivalent(newSen, bool_expr);
 			}
 
 			else if (cmd == "module:")
@@ -172,7 +172,7 @@ public:
 			string bool_expr;
 			getline(cin, bool_expr);
 
-			trans_if(newSen, bool_expr);
+			trans_module(newSen, bool_expr);
 			}
 
 			else if (cmd == "subtract:")
@@ -181,7 +181,7 @@ public:
 			string bool_expr;
 			getline(cin, bool_expr);
 
-			trans_if(newSen, bool_expr);
+			trans_subtract(newSen, bool_expr);
 			}
 
 			else if (cmd == "add:")
@@ -190,7 +190,7 @@ public:
 			string bool_expr;
 			getline(cin, bool_expr);
 
-			trans_if(newSen, bool_expr);
+			trans_add(newSen, bool_expr);
 			}
 
 			else if (cmd == "multiply:")
@@ -199,7 +199,7 @@ public:
 			string bool_expr;
 			getline(cin, bool_expr);
 
-			trans_if(newSen, bool_expr);
+			trans_multiply(newSen, bool_expr);
 			}
 
 			else if (cmd == "divide:")
@@ -208,7 +208,7 @@ public:
 			string bool_expr;
 			getline(cin, bool_expr);
 
-			trans_if(newSen, bool_expr);
+			trans_divide(newSen, bool_expr);
 			}
 
 			else
@@ -308,55 +308,55 @@ public:
 		getStatements();
 	}
 
-	/*virtual void trans_equal(string expr, string bool_expr)
+	virtual void trans_equal(string expr, string bool_expr)
 	{
-		cout << "int " << bool_expr << endl;
+		cout << bool_expr << endl;
 		getStatements();
 	}
 	
 	virtual void trans_equivalent(string expr, string bool_expr)
 	{
-		cout << "int " << bool_expr << endl;
+		cout << bool_expr << endl;
 		getStatements();
 	}
 
 	virtual void trans_notEquivalent(string expr, string bool_expr)
 	{
-		cout << "int " << bool_expr << endl;
+		cout << bool_expr << endl;
 		getStatements();
 	}
 
 	virtual void trans_module(string expr, string bool_expr)
 	{
-		cout << "int " << bool_expr << endl;
+		cout << bool_expr << endl;
 		getStatements();
 	}
 
 	virtual void trans_subtract(string expr, string bool_expr)
 	{
-		cout << "int " << bool_expr << endl;
+		cout << bool_expr << endl;
 		getStatements();
 	}
 
 	virtual void trans_add(string expr, string bool_expr)
 	{
-		cout << "int " << bool_expr << endl;
+		cout << bool_expr << endl;
 		getStatements();
 	}
 
 	virtual void trans_multiply(string expr, string bool_expr)
 	{
-		cout << "int " << bool_expr << endl;
+		cout << bool_expr << endl;
 		getStatements();
 	}
 
 	virtual void trans_divide(string expr, string bool_expr)
 	{
-		cout << "int " << bool_expr << endl;
+		cout << bool_expr << endl;
 		getStatements();
 	}
 
-	*/
+	
 };
 
 class Java : public Language
@@ -426,55 +426,55 @@ public:
 		getStatements();
 	}
 
-	/*virtual void trans_equal(string expr, string bool_expr)
+	virtual void trans_equal(string expr, string bool_expr)
 	{
-		cout << "int " << bool_expr << endl;
+		cout << bool_expr << endl;
 		getStatements();
 	}
 
 	virtual void trans_equivalent(string expr, string bool_expr)
 	{
-		cout << "int " << bool_expr << endl;
+		cout << bool_expr << endl;
 		getStatements();
 	}
 
 	virtual void trans_notEquivalent(string expr, string bool_expr)
 	{
-		cout << "int " << bool_expr << endl;
+		cout << bool_expr << endl;
 		getStatements();
 	}
 
 	virtual void trans_module(string expr, string bool_expr)
 	{
-		cout << "int " << bool_expr << endl;
+		cout << bool_expr << endl;
 		getStatements();
 	}
 
 	virtual void trans_subtract(string expr, string bool_expr)
 	{
-		cout << "int " << bool_expr << endl;
+		cout << bool_expr << endl;
 		getStatements();
 	}
 
 	virtual void trans_add(string expr, string bool_expr)
 	{
-		cout << "int " << bool_expr << endl;
+		cout << bool_expr << endl;
 		getStatements();
 	}
 
 	virtual void trans_multiply(string expr, string bool_expr)
 	{
-		cout << "int " << bool_expr << endl;
+		cout << bool_expr << endl;
 		getStatements();
 	}
 
 	virtual void trans_divide(string expr, string bool_expr)
 	{
-		cout << "int " << bool_expr << endl;
+		cout << bool_expr << endl;
 		getStatements();
 	}
 
-	*/
+	
 };
 
 /*class Python : public Language

@@ -1,37 +1,3 @@
 ﻿  Translator.cpp
-c:\users\trevor\desktop\translator\translator\translator.cpp(507): error C2259: 'CPP': cannot instantiate abstract class
-  c:\users\trevor\desktop\translator\translator\translator.cpp(507): note: due to following members:
-  c:\users\trevor\desktop\translator\translator\translator.cpp(507): note: 'void Language::trans_equal(std::string,std::string)': is abstract
-  c:\users\trevor\desktop\translator\translator\translator.cpp(22): note: see declaration of 'Language::trans_equal'
-  c:\users\trevor\desktop\translator\translator\translator.cpp(507): note: 'void Language::trans_equivalent(std::string,std::string)': is abstract
-  c:\users\trevor\desktop\translator\translator\translator.cpp(23): note: see declaration of 'Language::trans_equivalent'
-  c:\users\trevor\desktop\translator\translator\translator.cpp(507): note: 'void Language::trans_notEquivalent(std::string,std::string)': is abstract
-  c:\users\trevor\desktop\translator\translator\translator.cpp(24): note: see declaration of 'Language::trans_notEquivalent'
-  c:\users\trevor\desktop\translator\translator\translator.cpp(507): note: 'void Language::trans_module(std::string,std::string)': is abstract
-  c:\users\trevor\desktop\translator\translator\translator.cpp(25): note: see declaration of 'Language::trans_module'
-  c:\users\trevor\desktop\translator\translator\translator.cpp(507): note: 'void Language::trans_subtract(std::string,std::string)': is abstract
-  c:\users\trevor\desktop\translator\translator\translator.cpp(26): note: see declaration of 'Language::trans_subtract'
-  c:\users\trevor\desktop\translator\translator\translator.cpp(507): note: 'void Language::trans_add(std::string,std::string)': is abstract
-  c:\users\trevor\desktop\translator\translator\translator.cpp(27): note: see declaration of 'Language::trans_add'
-  c:\users\trevor\desktop\translator\translator\translator.cpp(507): note: 'void Language::trans_multiply(std::string,std::string)': is abstract
-  c:\users\trevor\desktop\translator\translator\translator.cpp(28): note: see declaration of 'Language::trans_multiply'
-  c:\users\trevor\desktop\translator\translator\translator.cpp(507): note: 'void Language::trans_divide(std::string,std::string)': is abstract
-  c:\users\trevor\desktop\translator\translator\translator.cpp(29): note: see declaration of 'Language::trans_divide'
-c:\users\trevor\desktop\translator\translator\translator.cpp(511): error C2259: 'Java': cannot instantiate abstract class
-  c:\users\trevor\desktop\translator\translator\translator.cpp(511): note: due to following members:
-  c:\users\trevor\desktop\translator\translator\translator.cpp(511): note: 'void Language::trans_equal(std::string,std::string)': is abstract
-  c:\users\trevor\desktop\translator\translator\translator.cpp(22): note: see declaration of 'Language::trans_equal'
-  c:\users\trevor\desktop\translator\translator\translator.cpp(511): note: 'void Language::trans_equivalent(std::string,std::string)': is abstract
-  c:\users\trevor\desktop\translator\translator\translator.cpp(23): note: see declaration of 'Language::trans_equivalent'
-  c:\users\trevor\desktop\translator\translator\translator.cpp(511): note: 'void Language::trans_notEquivalent(std::string,std::string)': is abstract
-  c:\users\trevor\desktop\translator\translator\translator.cpp(24): note: see declaration of 'Language::trans_notEquivalent'
-  c:\users\trevor\desktop\translator\translator\translator.cpp(511): note: 'void Language::trans_module(std::string,std::string)': is abstract
-  c:\users\trevor\desktop\translator\translator\translator.cpp(25): note: see declaration of 'Language::trans_module'
-  c:\users\trevor\desktop\translator\translator\translator.cpp(511): note: 'void Language::trans_subtract(std::string,std::string)': is abstract
-  c:\users\trevor\desktop\translator\translator\translator.cpp(26): note: see declaration of 'Language::trans_subtract'
-  c:\users\trevor\desktop\translator\translator\translator.cpp(511): note: 'void Language::trans_add(std::string,std::string)': is abstract
-  c:\users\trevor\desktop\translator\translator\translator.cpp(27): note: see declaration of 'Language::trans_add'
-  c:\users\trevor\desktop\translator\translator\translator.cpp(511): note: 'void Language::trans_multiply(std::string,std::string)': is abstract
-  c:\users\trevor\desktop\translator\translator\translator.cpp(28): note: see declaration of 'Language::trans_multiply'
-  c:\users\trevor\desktop\translator\translator\translator.cpp(511): note: 'void Language::trans_divide(std::string,std::string)': is abstract
-  c:\users\trevor\desktop\translator\translator\translator.cpp(29): note: see declaration of 'Language::trans_divide'
+c:\users\trevor\desktop\translator\translator\translator.cpp(497): warning C4101: 'i': unreferenced local variable
+  Translator.vcxproj -> C:\Users\Trevor\Desktop\Translator\x64\Debug\Translator.exe
