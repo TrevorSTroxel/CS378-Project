@@ -1,4 +1,4 @@
 ﻿  Translator.cpp
 c:\users\ttroxel21\desktop\translator\translator\translator.cpp(42): warning C4018: '<': signed/unsigned mismatch
-c:\users\ttroxel21\desktop\translator\translator\translator.cpp(609): warning C4101: 'i': unreferenced local variable
+c:\users\ttroxel21\desktop\translator\translator\translator.cpp(612): warning C4101: 'i': unreferenced local variable
   Translator.vcxproj -> C:\Users\ttroxel21\Desktop\Translator\Debug\Translator.exe

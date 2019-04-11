@@ -64,7 +64,7 @@ public:
 				string bool_expr;
 				getline(cin, bool_expr);
 
-				trans_if(newSen, bool_expr);
+				trans_elseif(newSen, bool_expr);
 			}
 
 			else if (cmd == "else:")
@@ -73,7 +73,7 @@ public:
 				string bool_expr;
 				getline(cin, bool_expr);
 
-				trans_if(newSen, bool_expr);
+				trans_else(newSen, bool_expr);
 			}
 
 			else if (cmd == "for:")
@@ -82,7 +82,7 @@ public:
 				string bool_expr;
 				getline(cin, bool_expr);
 
-				trans_if(newSen, bool_expr);
+				trans_for(newSen, bool_expr);
 			}
 
 			else if (cmd == "while:")
@@ -100,7 +100,7 @@ public:
 				string bool_expr;
 				getline(cin, bool_expr);
 
-				trans_if(newSen, bool_expr);
+				trans_value(newSen, bool_expr);
 			}
 
 			else if (cmd == "bigValue:")
@@ -109,7 +109,7 @@ public:
 				string bool_expr;
 				getline(cin, bool_expr);
 
-				trans_if(newSen, bool_expr);
+				trans_bigValue(newSen, bool_expr);
 			}
 
 			else if (cmd == "pointValue:")
@@ -118,7 +118,7 @@ public:
 				string bool_expr;
 				getline(cin, bool_expr);
 
-				trans_if(newSen, bool_expr);
+				trans_pointValue(newSen, bool_expr);
 			}
 
 			else if (cmd == "sentence:")
@@ -127,7 +127,7 @@ public:
 				string bool_expr;
 				getline(cin, bool_expr);
 
-				trans_if(newSen, bool_expr);
+				trans_sentence(newSen, bool_expr);
 			}
 
 			else if (cmd == "letter:")
@@ -136,7 +136,7 @@ public:
 				string bool_expr;
 				getline(cin, bool_expr);
 
-				trans_if(newSen, bool_expr);
+				trans_letter(newSen, bool_expr);
 			}
 
 			// These are commands that give you the ability to make commands such as equal signs.
@@ -157,7 +157,7 @@ public:
 				getline(cin, bool_expr1);
 				getline(cin, bool_expr2);
 
-				trans_equal(newSen, bool_expr1, bool_expr2);
+				trans_equivalent(newSen, bool_expr1, bool_expr2);
 			}
 
 			else if (cmd == "notEquivalent:")
@@ -167,7 +167,7 @@ public:
 				getline(cin, bool_expr1);
 				getline(cin, bool_expr2);
 
-				trans_equal(newSen, bool_expr1, bool_expr2);
+				trans_notEquivalent(newSen, bool_expr1, bool_expr2);
 			}
 
 			else if (cmd == "module:")
@@ -177,7 +177,7 @@ public:
 				getline(cin, bool_expr1);
 				getline(cin, bool_expr2);
 
-				trans_equal(newSen, bool_expr1, bool_expr2);
+				trans_module(newSen, bool_expr1, bool_expr2);
 			}
 
 			else if (cmd == "subtract:")
@@ -187,7 +187,7 @@ public:
 				getline(cin, bool_expr1);
 				getline(cin, bool_expr2);
 
-				trans_equal(newSen, bool_expr1, bool_expr2);
+				trans_subtract(newSen, bool_expr1, bool_expr2);
 			}
 
 			else if (cmd == "add:")
@@ -197,7 +197,7 @@ public:
 				getline(cin, bool_expr1);
 				getline(cin, bool_expr2);
 
-				trans_equal(newSen, bool_expr1, bool_expr2);
+				trans_add(newSen, bool_expr1, bool_expr2);
 			}
 
 			else if (cmd == "multiply:")
@@ -207,7 +207,7 @@ public:
 				getline(cin, bool_expr1);
 				getline(cin, bool_expr2);
 
-				trans_equal(newSen, bool_expr1, bool_expr2);
+				trans_multiply(newSen, bool_expr1, bool_expr2);
 			}
 
 			else if (cmd == "divide:")
@@ -217,7 +217,7 @@ public:
 				getline(cin, bool_expr1);
 				getline(cin, bool_expr2);
 
-				trans_equal(newSen, bool_expr1, bool_expr2);
+				trans_divide(newSen, bool_expr1, bool_expr2);
 			}
 
 			else
@@ -496,49 +496,51 @@ public:
 
 	virtual void trans_if(string expr, string bool_expr)
 	{
-		cout << "if " << expr << ":\n" << "  " << bool_expr << endl;
+		cout << "if " << expr << " in "<< bool_expr << ":\n";
 		getStatements();
 	}
 
 	virtual void trans_elseif(string expr, string bool_expr)
 	{
-		cout << "elif " << expr << ":\n" << "  " << bool_expr << endl;
+		cout << "elif " << expr << " in " << bool_expr << ":\n";
 		getStatements();
 	}
 	virtual void trans_else(string expr, string bool_expr)
 	{
-		cout << "else " << expr << ":\n" << "  " << bool_expr << endl;
+		cout << "else " << expr << " in " << bool_expr << ":\n";
 		getStatements();
 	}
 
-	//this is the one that you stopped on.
 	virtual void trans_for(string expr, string bool_expr)
 	{
-		cout << "for " << expr <<" in " << ":\n" << "  " << bool_expr << endl;
+		cout << "for " << expr << " in " << bool_expr <<":\n";
 		getStatements();
 	}
 
 	virtual void trans_while(string expr, string bool_expr)
 	{
-		cout << "while (" << expr << ")\n" << "{\n" << bool_expr << endl << "}\n";
+		cout << "What do you want to make your statement true?\n";
+		string bool_stmt;
+		getline(cin, bool_stmt);
+		cout << "while " << expr  << " " << bool_stmt << " " << bool_expr << ":\n";
 		getStatements();
 	}
 
 	virtual void trans_value(string expr, string bool_expr)
 	{
-		cout << "int " << bool_expr << endl;
+		cout << expr << endl;
 		getStatements();
 	}
 
 	virtual void trans_bigValue(string expr, string bool_expr)
 	{
-		cout << "double " << bool_expr << endl;
+		cout << expr << endl;
 		getStatements();
 	}
 
 	virtual void trans_pointValue(string expr, string bool_expr)
 	{
-		cout << "float " << bool_expr << endl;
+		cout << expr << endl;
 		getStatements();
 	}
 
@@ -633,24 +635,52 @@ void start()
 		cout << "What program do you want to learn about?" << endl;
 		string prg;
 		cin >> prg;
-		if (prg == "c++")
+		if (prg == "C++")
 		{
+			cout << "General Info:\n";
 			cout << "C++ is more than likely the first language that any one tries to learn.\n";
 			cout << "It is an extremely simple and intuitive language that most programs are made out of.\n";
-			cout << "Being both simple and easy, this program will help you learn the basics of C++ in no time.\n";
+			cout << "Being both simple and easy, this program will help you learn the basics of C++ in no time.\n\n";
+			start();
 		}
-		else if (prg == "java")
+		else if (prg == "Java")
 		{
-			cout << "Java is extremely similar to C++ in many ways.\n";
-			cout << "After learning about C++, you should be able to understand how to do Java.\n";
+			cout << "General Info:\n";
+			cout << "Java is extremely similar to C++ in almost every way.\n";
+			cout << "After learning about C++, you should be able to understand how to do Java.\n\n";
+			cout << "Codeing Info:";
+			cout << "The biggest difference between C++ and Java is how you write things to the terminal. Java uses System.out.print("")\n";
+			cout << "and C++ uses cout << \"\" << endl;\n\n";
+			start();
 		}
-		else if (prg == "python")
+		else if (prg == "Python")
 		{
+			cout << "General Info:\n";
 			cout << "Python is a bit more complex.\n";
-			cout << "For starters, all python scripts will not use \";\" at any point, you will be using \":\" sometimes, but not often.\n";
+			cout << "Python is more englished based, so when you actually read it, is should somewhat read like a book of sorts.\n";
+			cout << "All python scripts will not use \";\" at any point, you will be using \":\" sometimes, but not often.\n";
 			cout << "Another big difference between Python and the other languages, is that it relies heavily on indentation.\n";
-			cout << "If you miss an indentation, then your program won't work\n";
+			cout << "If you miss an indentation, then your program won't work\n\n";
+			cout << "Codeing Info:\n";
+			cout << "There are several statement that work differently.\n";
+			cout << "The for statement is more complex then most. It goes like this; for [variable] in [variable].\n";
+			cout << "EX:\n";
+			cout << "fruits = [\"apple\", \"banana\", \"cherry\"]\n";
+			cout << "for x in fruits:\n";
+			cout << "print (x)\n";
+			cout << "or\n";
+			cout << "for x in \"fruits\":\n";
+			cout << "print (x)\n\n";
+			cout << "The while statement is also different. For it to work it must need a statement that is a boolian function.\n";
+			cout << "EX:\n";
+			cout << "i = 1\n";
+			cout << "while i < 6:\n";
+			cout << "print(i)\n\n";
+			cout << "Unlike C++ or Java, when assigning a value to a variable, you don't need to delclare what it is.\n";
+			cout << "EX:\n";
+			start();
 		}
+
 		else
 		{
 			cout << "That’s not a language, at least at the time of writing this code." << endl;
@@ -669,8 +699,9 @@ void start()
 int main()
 {
 	cout << "If you are new to this and don't know what to do, type \"info\".\n";
-	cout << "If you know what language you want, but don't know the commands; follow these commands:\n";
+	cout << "If you know what language you want, but don't know the commands; follow these commands.\n";
 	cout << "First choose the language that you want, then type commands: to see a list commands you can try.\n";
+	cout << "I would highly recommend looking at the info on Python, because it is a much more complicated language to learn.\n";
 	start();
 	return 0;
 }
