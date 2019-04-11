@@ -546,13 +546,13 @@ public:
 
 	virtual void trans_sentence(string expr, string bool_expr)
 	{
-		cout << "string " << bool_expr << endl;
+		cout << expr << " = " << "\""<< bool_expr << "\"" << endl;
 		getStatements();
 	}
 
 	virtual void trans_letter(string expr, string bool_expr)
 	{
-		cout << "char " << bool_expr << endl;
+		cout << expr << " = " << "\"" << bool_expr << "\"" << endl;
 		getStatements();
 	}
 
@@ -637,6 +637,7 @@ void start()
 		cin >> prg;
 		if (prg == "C++")
 		{
+			cout << "\n";
 			cout << "General Info:\n";
 			cout << "C++ is more than likely the first language that any one tries to learn.\n";
 			cout << "It is an extremely simple and intuitive language that most programs are made out of.\n";
@@ -645,6 +646,7 @@ void start()
 		}
 		else if (prg == "Java")
 		{
+			cout << "\n";
 			cout << "General Info:\n";
 			cout << "Java is extremely similar to C++ in almost every way.\n";
 			cout << "After learning about C++, you should be able to understand how to do Java.\n\n";
@@ -655,6 +657,7 @@ void start()
 		}
 		else if (prg == "Python")
 		{
+			cout << "\n";
 			cout << "General Info:\n";
 			cout << "Python is a bit more complex.\n";
 			cout << "Python is more englished based, so when you actually read it, is should somewhat read like a book of sorts.\n";
@@ -676,8 +679,12 @@ void start()
 			cout << "i = 1\n";
 			cout << "while i < 6:\n";
 			cout << "print(i)\n\n";
-			cout << "Unlike C++ or Java, when assigning a value to a variable, you don't need to delclare what it is.\n";
+			cout << "Unlike C++ or Java, when assigning a value to a variable, you don't need to declare what it is.\n";
+			cout << "Python will auto detect what you want a assign the variable with out you having too.\n";
 			cout << "EX:\n";
+			cout << "x = 1, Python assumes this is a int.\n";
+			cout << "y = 2.8, Python assumes this is a float.\n";
+			cout << "z = 1j Python assumes this is a complex.\n";
 			start();
 		}
 
@@ -705,4 +712,3 @@ int main()
 	start();
 	return 0;
 }
-
