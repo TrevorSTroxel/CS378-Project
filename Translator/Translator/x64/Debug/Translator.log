@@ -1,3 +1,5 @@
 ﻿  Translator.cpp
-c:\users\trevor\desktop\translator\translator\translator.cpp(497): warning C4101: 'i': unreferenced local variable
+c:\users\trevor\desktop\translator\translator\translator.cpp(290): warning C4129: 'A': unrecognized character escape sequence
+c:\users\trevor\desktop\translator\translator\translator.cpp(1003): warning C4129: 'A': unrecognized character escape sequence
+c:\users\trevor\desktop\translator\translator\translator.cpp(853): warning C4101: 'i': unreferenced local variable
   Translator.vcxproj -> C:\Users\Trevor\Desktop\Translator\x64\Debug\Translator.exe
