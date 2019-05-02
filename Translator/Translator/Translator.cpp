@@ -10,11 +10,11 @@ class Language
 {
 public:
 	virtual void trans_say(string msg) = 0;
-	virtual void trans_if(string expr, string bool_expr) = 0;
-	virtual void trans_elseif(string expr, string bool_expr) = 0;
-	virtual void trans_else(string expr, string bool_expr) = 0;
-	virtual void trans_for(string expr1, string expr2, string expr3, string bool_expr) = 0;
-	virtual void trans_while(string expr1, string expr2, string bool_expr1, string bool_expr2) = 0;
+	virtual void trans_if(string expr, string expr1, string expr2, string bool_expr) = 0;
+	virtual void trans_elseif(string expr, string expr1, string expr2, string bool_expr) = 0;
+	virtual void trans_else(string expr, string expr1, string expr2, string bool_expr) = 0;
+	virtual void trans_for(string expr1, string expr2, string expr3, string expr4, string expr5, string expr6, string expr7, string bool_expr) = 0;
+	virtual void trans_while(string expr, string expr1, string expr2, string expr3, string expr4, string expr5, string bool_expr1, string bool_expr2) = 0;
 	virtual void trans_value(string expr, string bool_expr) = 0;
 	virtual void trans_bigValue(string expr, string bool_expr) = 0;
 	virtual void trans_pointValue(string expr, string bool_expr) = 0;
@@ -39,11 +39,11 @@ public:
 			cin >> cmd;
 			cin.ignore();
 
-			string sub, sub1, sub2, sub3, bool_expr, bool_expr1, bool_expr2;
+			string sub, sub1, sub2, sub3, sub4, sub5, sub6, sub7, bool_expr, bool_expr1, bool_expr2;
 
 			if (cmd == "say:" || cmd == "say")
 			{
-				cout << "What do you want your sentence to say?\n";
+				cout << "What do you want your sentence to say: ";
 				getline(cin, sub);
 				trans_say(sub);
 			}
@@ -51,82 +51,143 @@ public:
 			else if (cmd == "if:" || cmd == "if")
 			{
 				cout << "What conditions do you want?\n";
-				cout << "EX: x = 9\n";
+				cout << "EX: x == 9\n";
+				cout << "\n";
+				cout << "EX: X\n";
+				cout << "Variable: ";
 				getline(cin, sub);
+				cout << "\n";
+				cout << "Comparison: ";
+				getline(cin, sub1);
+				cout << "\n";
+				cout << "Variable: ";
+				getline(cin, sub2);
+				cout << "\n";
 				cout << "What happens if " << sub << " is true?\n";
+				cout << "\n";
 				cout << "EX: cout << \"Hello world\" << endl; in C++\n";
-				cout << "EX: System.out.print(\"hello world\"); in Java\n";
+				cout << "\n";
+				cout << "EX: System.out.println(\"hello world\"); in Java\n";
+				cout << "\n";
 				cout << "EX: print(\"hello world\") in Python\n";
 
 				getline(cin, bool_expr);
 
-				trans_if(sub, bool_expr);
+				trans_if(sub, sub1, sub2, bool_expr);
 			}
 
 			else if (cmd == "elseif:" || cmd == "elseif")
 			{
 				cout << "What conditions do you want?\n";
-				cout << "EX: x = 9\n";
+				cout << "EX: x == 9\n";
+				cout << "\n";
+				cout << "EX: X\n";
+				cout << "Variable: ";
 				getline(cin, sub);
+				cout << "\n";
+				cout << "Comparison: ";
+				getline(cin, sub1);
+				cout << "\n";
+				cout << "Variable: ";
+				getline(cin, sub2);
+				cout << "\n";
 				cout << "What happens if " << sub << " is true?\n";
+				cout << "\n";
 				cout << "EX: cout << \"Hello world\" << endl; in C++\n";
-				cout << "EX: System.out.print(\"hello world\"); in Java\n";
+				cout << "\n";
+				cout << "EX: System.out.println(\"hello world\"); in Java\n";
+				cout << "\n";
 				cout << "EX: print(\"hello world\") in Python\n";
 
 				getline(cin, bool_expr);
 
-				trans_elseif(sub, bool_expr);
+				trans_if(sub, sub1, sub2, bool_expr);
 			}
 
 			else if (cmd == "else:" || cmd == "else")
 			{
 				cout << "What conditions do you want?\n";
-				cout << "EX: x = 9\n";
+				cout << "EX: x == 9\n";
+				cout << "\n";
+				cout << "EX: X\n";
+				cout << "Variable: ";
 				getline(cin, sub);
+				cout << "\n";
+				cout << "Comparison: ";
+				getline(cin, sub1);
+				cout << "\n";
+				cout << "Variable: ";
+				getline(cin, sub2);
+				cout << "\n";
 				cout << "What happens if " << sub << " is true?\n";
+				cout << "\n";
 				cout << "EX: cout << \"Hello world\" << endl; in C++\n";
-				cout << "EX: System.out.print(\"hello world\"); in Java\n";
+				cout << "\n";
+				cout << "EX: System.out.println(\"hello world\"); in Java\n";
+				cout << "\n";
 				cout << "EX: print(\"hello world\") in Python\n";
 
 				getline(cin, bool_expr);
 
-				trans_else(sub, bool_expr);
+				trans_if(sub, sub1, sub2, bool_expr);
 			}
 
 			else if (cmd == "for:" || cmd == "for")
 			{
-				cout << "If you are doing this in Python, then please read this. This is very important.\n";
-				cout << "If you are in Python, you only use the first, second, and last answers because Python works differently.\n";
-				cout << "If you are confused by this, please refer back to the info section on Python for reference.\n";
-				cout << "What is your first variable you want to create?\n";
-				cout << "If you are using Python, please enter a variable name, such as X.\n";
+				cout << "What conditions do you want?\n";
 				cout << "EX: i = 0\n";
+				cout << "\n";
+				cout << "Variable: ";
 				getline(cin, sub1);
-				cout << "What conditions do you want to make your variable follow?\n";
-				cout << "If you are using Python, please enter another but different variable name, like \"apple\".\n";
-				cout << "EX: i < 2\n";
+				cout << "Comparison: ";
 				getline(cin, sub2);
+				cout << "Variable: ";
+				getline(cin, sub3);
+				cout << "\n";
+				cout << "What conditions do you want to make your variable follow?\n";
+				cout << "EX: i < 2\n";
+				cout << "\n";
+				cout << "Variable: ";
+				getline(cin, sub4);
+				cout << "Comparison: ";
+				getline(cin, sub5);
+				cout << "Variable: ";
+				getline(cin, sub6);
+				cout << "\n";
 				cout << "How do you want this to increment?\n";
 				cout << "EX: i++\n";
-				getline(cin, sub3);
-				cout << "While al these conitions are going on, what is happening?\n";
-				cout << "If you are in Python, type what would happen, EX: print(x)\n";
-				cout << "EX: cout << \"Hello world\" << endl; \n";
-
+				cout << "Increment: ";
+				getline(cin, sub7);
+				cout << "\n";
+				cout << "While all these conitions are going on, what is happening?\n";
+				cout << "EX: cout << \"Hello world\" << endl; in C++\n";
+				cout << "\n";
+				cout << "EX: System.out.println(\"hello world\"); in Java\n";
+				cout << "\n";
+				cout << "EX: print(\"hello world\") in Python\n";
+				cout << "Output: ";
 				getline(cin, bool_expr);
 
-				trans_for(sub1, sub2, sub3, bool_expr);
+				trans_for(sub1, sub2, sub3, sub4, sub5, sub6, sub7, bool_expr);
 			}
 
 			else if (cmd == "while:" || cmd == "while")
 			{
 				cout << "First you have to set what the variable to be.\n";
 				cout << "EX: int a = 20\n";
-				getline(cin, sub1);
-
+				cout << "\n";
+				cout << "Variable: ";
+				getline(cin, sub);
+				cout << "Variable: ";
+				getline(cin, sub2);
 				cout << "What do you want the conditions to be?\n";
 				cout << "EX: a < 20\n";
-				getline(cin, sub2);
+				cout << "Variable: ";
+				getline(cin, sub3);
+				cout << "Comparison: ";
+				getline(cin, sub4);
+				cout << "Variable: ";
+				getline(cin, sub5);
 
 				cout << "Wht do you want happening while this is going through?\n";
 				cout << "You will need to enter two different inputs. Type one answer then hit enter.\n";
@@ -134,20 +195,20 @@ public:
 				cout << "EX: \"cout << \"value of a: \" << a << endl; in C++\n";
 				cout << "EX: a++, in C++\n";
 				cout << "EX: System.out.print(\"hello world\"); in Java\n";
-				cout << "a++, in Java\n";
+				cout << "EX: a++, in Java\n";
 				cout << "EX: print(a) in Python\n";
-				cout << "a +=1 in Python\n";
+				cout << "EX: a += 1 in Python\n";
 
 				getline(cin, bool_expr1);
 				getline(cin, bool_expr2);
 
-				trans_while(sub1, sub2, bool_expr1, bool_expr2);
+				trans_while(sub, sub1, sub2, sub3, sub4, sub5, bool_expr1, bool_expr2);
 			}
 
 			else if (cmd == "value:" || cmd == "value")
 			{
 				cout << "What do you want to name your variable?\n";
-				string bool_expr;
+				cout << "Name: ";
 				getline(cin, bool_expr);
 
 				trans_value(sub, bool_expr);
@@ -156,7 +217,7 @@ public:
 			else if (cmd == "bigValue:" || cmd == "bigValue")
 			{
 				cout << "What do you want to name your variable?\n";
-				string bool_expr;
+				cout << "Name: ";
 				getline(cin, bool_expr);
 
 				trans_bigValue(sub, bool_expr);
@@ -165,7 +226,7 @@ public:
 			else if (cmd == "pointValue:" || cmd == "pointValue")
 			{
 			cout << "What do you want to name your variable?\n";
-				string bool_expr;
+			cout << "Name: ";
 				getline(cin, bool_expr);
 
 				trans_pointValue(sub, bool_expr);
@@ -174,7 +235,7 @@ public:
 			else if (cmd == "sentence:" || cmd == "sentence")
 			{
 			cout << "What do you want to name your variable?\n";
-				string bool_expr;
+			cout << "Name: ";
 				getline(cin, bool_expr);
 
 				trans_sentence(sub, bool_expr);
@@ -183,7 +244,7 @@ public:
 			else if (cmd == "letter:" || cmd == "letter")
 			{
 			cout << "What do you want to name your variable?\n";
-				string bool_expr;
+			cout << "Name: ";
 				getline(cin, bool_expr);
 
 				trans_letter(sub, bool_expr);
@@ -193,8 +254,9 @@ public:
 			else if (cmd == "equal:" || cmd == "equal")
 			{
 				cout << "What two variables do you want make equal to each other\n";
-				string bool_expr1, bool_expr2;
+				cout << "Variable: ";
 				getline(cin, bool_expr1);
+				cout << "Variable: ";
 				getline(cin, bool_expr2);
 
 				trans_equal(sub, bool_expr1, bool_expr2);
@@ -203,8 +265,9 @@ public:
 			else if (cmd == "equivalent:" || cmd == "equivalent")
 			{
 				cout << "What two variables do you want make equivalent to each other\n";
-				string bool_expr1, bool_expr2;
+				cout << "Variable: ";
 				getline(cin, bool_expr1);
+				cout << "Variable: ";
 				getline(cin, bool_expr2);
 
 				trans_equivalent(sub, bool_expr1, bool_expr2);
@@ -213,8 +276,9 @@ public:
 			else if (cmd == "notEquivalent:" || cmd == "noitEquivalent")
 			{
 				cout << "What two variables do you want make not equivalent to each other\n";
-				string bool_expr1, bool_expr2;
+				cout << "Variable: ";
 				getline(cin, bool_expr1);
+				cout << "Variable: ";
 				getline(cin, bool_expr2);
 
 				trans_notEquivalent(sub, bool_expr1, bool_expr2);
@@ -223,8 +287,9 @@ public:
 			else if (cmd == "module:" || cmd == "module")
 			{
 				cout << "What two variables do you want make module to each other\n";
-				string bool_expr1, bool_expr2;
+				cout << "Variable: ";
 				getline(cin, bool_expr1);
+				cout << "Variable: ";
 				getline(cin, bool_expr2);
 
 				trans_module(sub, bool_expr1, bool_expr2);
@@ -233,8 +298,9 @@ public:
 			else if (cmd == "subtract:" || cmd == "subtract")
 			{
 				cout << "What two variables do you want make subtract each other\n";
-				string bool_expr1, bool_expr2;
+				cout << "Variable: ";
 				getline(cin, bool_expr1);
+				cout << "Variable: ";
 				getline(cin, bool_expr2);
 
 				trans_subtract(sub, bool_expr1, bool_expr2);
@@ -243,8 +309,9 @@ public:
 			else if (cmd == "add:" || cmd == "add")
 			{
 				cout << "What two variables do you want make add to each other\n";
-				string bool_expr1, bool_expr2;
+				cout << "Variable: ";
 				getline(cin, bool_expr1);
+				cout << "Variable: ";
 				getline(cin, bool_expr2);
 
 				trans_add(sub, bool_expr1, bool_expr2);
@@ -253,8 +320,9 @@ public:
 			else if (cmd == "multiply:" || cmd == "multiply")
 			{
 				cout << "What two variables do you want make multiply to each other\n";
-				string bool_expr1, bool_expr2;
+				cout << "Variable: ";
 				getline(cin, bool_expr1);
+				cout << "Variable: ";
 				getline(cin, bool_expr2);
 
 				trans_multiply(sub, bool_expr1, bool_expr2);
@@ -263,8 +331,9 @@ public:
 			else if (cmd == "divide:" || cmd == "divide")
 			{
 				cout << "What two variables do you want make divide to each other\n";
-				string bool_expr1, bool_expr2;
+				cout << "Variable: ";
 				getline(cin, bool_expr1);
+				cout << "Variable: ";
 				getline(cin, bool_expr2);
 
 				trans_divide(sub, bool_expr1, bool_expr2);
@@ -339,18 +408,18 @@ public:
 		cout << "}\n";
 	}
 
-	virtual void trans_if(string expr, string bool_expr)
+	virtual void trans_if(string expr, string expr1, string expr2, string bool_expr)
 	{
 		cout << "\n";
 		cout << "int main ()\n";
 		cout << "{\n";
-		cout << "if (" << expr << ")\n" << "{\n" << bool_expr << endl << "}\n";
+		cout << "if (" << expr << " " << expr1 << " " << expr2 << ")\n" << "{\n" << bool_expr << endl << "}\n";
 		cout << "}\n";
 		getStatements();
 
 	}
 
-	virtual void trans_elseif(string expr, string bool_expr)
+	virtual void trans_elseif(string expr, string expr1, string expr2, string bool_expr)
 	{
 		cout << "\n";
 		cout << "int main ()\n";
@@ -361,7 +430,7 @@ public:
 
 	}
 
-	virtual void trans_else(string expr, string bool_expr)
+	virtual void trans_else(string expr, string expr1, string expr2, string bool_expr)
 	{
 		cout << "\n";
 		cout << "int main ()\n";
@@ -372,25 +441,24 @@ public:
 
 	}
 
-	virtual void trans_for(string expr1, string expr2, string expr3, string bool_expr)
+	virtual void trans_for(string expr1, string expr2, string expr3, string expr4, string expr5, string expr6, string expr7, string bool_expr)
 	{
 		cout << "\n";
 		cout << "int main ()\n";
 		cout << "{\n";
-		
-		cout << "for (" << expr1 << ", " << expr2 << ", " << expr3 << ")\n" << "{\n" << bool_expr << endl << "}\n";
+		cout << "for (" << expr1 << " " << expr2 << " " << expr3 << ", " << expr4  << " " << expr5 << " " << expr6 << ", " << expr7 << ")\n" << "{\n" << bool_expr << endl << "}\n";
 		cout << "}\n";
 		getStatements();
 
 	}
 
-	virtual void trans_while(string expr1, string expr2, string bool_expr1, string bool_expr2)
+	virtual void trans_while(string expr, string expr1, string expr2, string expr3, string expr4, string expr5, string bool_expr1, string bool_expr2)
 	{
 		cout << "\n";
 		cout << "int main ()\n";
 		cout << "{\n";
-		cout << expr1 << endl;
-		cout << "while (" << expr2 << ")\n" << "{\n" << bool_expr1 << endl << bool_expr2 << endl << "}\n";
+		cout << expr << " = " << expr2 << endl;
+		cout << "while (" << expr3 << " " << expr4 << " " << expr5 << ")\n" << "{\n" << bool_expr1 << endl << bool_expr2 << endl << "}\n";
 		cout << "}\n";
 		getStatements();
 
@@ -555,18 +623,18 @@ public:
 		cout << "}\n";
 	}
 
-	virtual void trans_if(string expr, string bool_expr)
+	virtual void trans_if(string expr, string expr1, string expr2, string bool_expr)
 	{
 		cout << "\n";
 		cout << "public class Main\n";
 		cout << "{\n";
-		cout << "if (" << expr << ")\n" << "{\n" << bool_expr << endl << "}\n";
+		cout << "if (" << expr << " " << expr1 << " " << expr2 << ")\n" << "{\n" << bool_expr << endl << "}\n";
 		cout << "}\n";
 		getStatements();
 
 	}
 
-	virtual void trans_elseif(string expr, string bool_expr)
+	virtual void trans_elseif(string expr, string expr1, string expr2, string bool_expr)
 	{
 		cout << "\n";
 		cout << "public class Main\n";
@@ -577,7 +645,7 @@ public:
 
 	}
 
-	virtual void trans_else(string expr, string bool_expr)
+	virtual void trans_else(string expr, string expr1, string expr2, string bool_expr)
 	{
 		cout << "\n";
 		cout << "public class Main\n";
@@ -588,23 +656,24 @@ public:
 
 	}
 
-	virtual void trans_for(string expr1, string expr2, string expr3, string bool_expr)
+	virtual void trans_for(string expr1, string expr2, string expr3, string expr4, string expr5, string expr6, string expr7, string bool_expr)
 	{
 		cout << "\n";
 		cout << "public class Main\n";
 		cout << "{\n";
-		cout << "for (" << expr1 << ", " << expr2 << ", " << expr3 << ")\n" << "{\n" << bool_expr << endl << "}\n";
+		cout << "for (" << expr1 << " " << expr2 << " " << expr3 << ", " << expr4 << " " << expr5 << " " << expr6 << ", " << expr7 << ")\n" << "{\n" << bool_expr << endl << "}\n";
 		cout << "}\n";
 		getStatements();
 
 	}
 
-	virtual void trans_while(string expr1, string expr2, string bool_expr1, string bool_expr2)
+	virtual void trans_while(string expr, string expr1, string expr2, string expr3, string expr4, string expr5, string bool_expr1, string bool_expr2)
 	{
 		cout << "\n";
 		cout << "public class Main\n";
+		cout << expr << " = " << expr2 << endl;
 		cout << "{\n";
-		cout << "while (" << expr2 << ")\n" << "{\n" << bool_expr1 << endl << bool_expr2 << endl << "}\n";
+		cout << "while (" << expr3 << " " << expr4 << " " << expr5 << ")\n" << "{\n" << bool_expr1 << endl << bool_expr2 << endl << "}\n";
 		cout << "}\n";
 		getStatements();
 
@@ -765,40 +834,40 @@ public:
 		cout << "print(\"" << msg << "\");\n";
 	}
 
-	virtual void trans_if(string expr, string bool_expr)
+	virtual void trans_if(string expr, string expr1, string expr2, string bool_expr)
 	{
 		cout << "\n";
-		cout << "if " << expr << " in "<< bool_expr << ":\n";
+		cout << "if " << expr << " " << expr1 << " " << expr2 << " in "<< bool_expr << ":\n";
 		getStatements();
 	}
 
-	virtual void trans_elseif(string expr, string bool_expr)
+	virtual void trans_elseif(string expr, string expr1, string expr2, string bool_expr)
 	{
 		cout << "\n";
 		cout << "elif " << expr << " in " << bool_expr << ":\n";
 		getStatements();
 	}
 
-	virtual void trans_else(string expr, string bool_expr)
+	virtual void trans_else(string expr, string expr1, string expr2, string bool_expr)
 	{
 		cout << "\n";
 		cout << "else " << expr << " in " << bool_expr << ":\n";
 		getStatements();
 	}
 
-	virtual void trans_for(string expr1, string expr2, string expr3, string bool_expr)
+	virtual void trans_for(string expr1, string expr2, string expr3, string expr4, string expr5, string expr6, string expr7, string bool_expr)
 	{
 		cout << "\n";
-		cout << "for " << expr1 << " in " << expr2 <<":\n";
+		cout << "for " << expr1 << " " << expr2 << " " << expr3 << ", " << expr4 << " " << expr5 << " " << expr6 << ", " << expr7 << ":\n";
 		cout << bool_expr << endl;
 		getStatements();
 	}
 
-	virtual void trans_while(string expr1, string expr2, string bool_expr1, string bool_expr2)
+	virtual void trans_while(string expr, string expr1, string expr2, string expr3, string expr4, string expr5, string bool_expr1, string bool_expr2)
 	{
 		cout << "\n";
-		cout << expr1 << endl;
-		cout << "while " << expr2 <<":\n";
+		cout << expr << " = " << expr2 << endl;
+		cout << "while " << expr3 << " " << expr4 << " " << expr5 <<":\n";
 		cout << bool_expr1 << endl;
 		cout << bool_expr2 << endl;
 		getStatements();
@@ -940,7 +1009,7 @@ void start()
 			cout << "say: = cout << (your sentence) << endl;\n" <<
 				"if: = if (conditions)\n" <<
 				"elseif: = else if (conditions)\n" <<
-				"else: = else\n" <<
+				"else: = else (conditions)\n" <<
 				"for: = for(initialization; condition ; increment/decrement)\n" <<
 				"while: = while (boolean_expression)\n" <<
 				"value: = int (variable)\n" <<
@@ -961,6 +1030,7 @@ void start()
 				"divide: = /\n" << endl;
 
 			cout << "Choose C++, Java, or Python: \n";
+			cout << "Language: ";
 			start();
 		}
 
@@ -974,7 +1044,7 @@ void start()
 			cout << "{\n";
 			cout << "code\n";
 			cout << "}\n";
-			cout << "After learning about C++, you should be able to understand how to do Java.\n\n";
+			cout << "After learning about C++, you should have an easier time learning Java.\n\n";
 			cout << "Codeing Info:";
 			cout << "The biggest difference between C++ and Java is how you write things to the terminal. Java uses System.out.print("")\n";
 			cout << "and C++ uses cout << \"\" << endl;\n\n";
@@ -1002,6 +1072,7 @@ void start()
 				"multiply: = *\n" <<
 				"divide: = /\n" << endl;
 			cout << "Choose C++, Java, or Python: \n";
+			cout << "Language: ";
 			start();
 		}
 
@@ -1009,7 +1080,7 @@ void start()
 		{
 			cout << "\n";
 			cout << "General Info:\n";
-			cout << "Python is both more complex and simpler at the same time.\n";
+			cout << "Python is both complex and simpler than both Java and  C++.\n";
 			cout << "Python is more englished based, so when you actually read it, is should somewhat read like a book of sorts.\n";
 			cout << "All python scripts will not use \";\" at any point, you will be using \":\" sometimes, but not often.\n";
 			cout << "Another big difference between Python and the other languages, is that it relies heavily on indentation.\n";
@@ -1036,6 +1107,8 @@ void start()
 			cout << "y = 2.8, Python assumes this is a float.\n";
 			cout << "z = 1j Python assumes this is a complex.\n";
 			cout << "However, if you want you can specify what each number is, despite if it is true or not.\n\n";
+			cout << "Despite this however, Python can be written like if it was a C++ or Java Program.\n";
+			cout << "For this project, there will be some sections where, despite working on Python, it will look like you are doing C++";
 			cout << "Code Examples:\n";
 			cout << "say: print(\"your sentence\")\n" <<
 				"if: = if conditions\n" <<
@@ -1060,6 +1133,7 @@ void start()
 				"multiply: = *\n" <<
 				"divide: = /\n\n";
 			cout << "Choose C++, Java, or Python: \n";
+			cout << "Language: ";
 			start();
 		}
 
@@ -1068,6 +1142,7 @@ void start()
 			cout << "Thats not a language, at least at the time of writing this code." << endl;
 			start();
 		}
+
 	}
 
 	else if(lang == "example")
