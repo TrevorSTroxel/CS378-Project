@@ -15,11 +15,11 @@ public:
 	virtual void trans_else(string expr, string expr1, string expr2, string bool_expr) = 0;
 	virtual void trans_for(string expr1, string expr2, string expr3, string expr4, string expr5, string expr6, string expr7, string bool_expr) = 0;
 	virtual void trans_while(string expr, string expr1, string expr2, string expr3, string expr4, string expr5, string bool_expr1, string bool_expr2) = 0;
-	virtual void trans_value(string expr, string bool_expr) = 0;
-	virtual void trans_bigValue(string expr, string bool_expr) = 0;
-	virtual void trans_pointValue(string expr, string bool_expr) = 0;
-	virtual void trans_sentence(string expr, string bool_expr) = 0;
-	virtual void trans_letter(string expr, string bool_expr) = 0;
+	virtual void trans_value(string expr, string bool_expr, string bool_expr1) = 0;
+	virtual void trans_bigValue(string expr, string bool_expr, string bool_expr1) = 0;
+	virtual void trans_pointValue(string expr, string bool_expr, string bool_expr1) = 0;
+	virtual void trans_sentence(string expr, string bool_expr, string bool_expr1) = 0;
+	virtual void trans_letter(string expr, string bool_expr, string bool_expr1) = 0;
 	virtual void trans_equal(string expr, string bool_expr1, string bool_expr2) = 0;
 	virtual void trans_equivalent(string expr, string bool_expr1, string bool_expr2) = 0;
 	virtual void trans_notEquivalent(string expr, string bool_expr1, string bool_expr2) = 0;
@@ -210,8 +210,11 @@ public:
 				cout << "What do you want to name your variable?\n";
 				cout << "Name: ";
 				getline(cin, bool_expr);
+				cout << "What do you want it to equal too? EX: 1\n";
+				cout << "Value: ";
+				getline(cin, bool_expr1);
 
-				trans_value(sub, bool_expr);
+				trans_value(sub, bool_expr, bool_expr1);
 			}
 
 			else if (cmd == "bigValue:" || cmd == "bigValue")
@@ -219,35 +222,47 @@ public:
 				cout << "What do you want to name your variable?\n";
 				cout << "Name: ";
 				getline(cin, bool_expr);
+				cout << "What do you want it to equal too? EX: 10000\n";
+				cout << "Value: ";
+				getline(cin, bool_expr1);
 
-				trans_bigValue(sub, bool_expr);
+				trans_bigValue(sub, bool_expr, bool_expr1);
 			}
 
 			else if (cmd == "pointValue:" || cmd == "pointValue")
 			{
-			cout << "What do you want to name your variable?\n";
-			cout << "Name: ";
+				cout << "What do you want to name your variable?\n";
+				cout << "Name: ";
 				getline(cin, bool_expr);
+				cout << "What do you want it to equal too? EX: 1.23456\n";
+				cout << "Value: ";
+				getline(cin, bool_expr1);
 
-				trans_pointValue(sub, bool_expr);
+				trans_pointValue(sub, bool_expr, bool_expr1);
 			}
 
 			else if (cmd == "sentence:" || cmd == "sentence")
 			{
-			cout << "What do you want to name your variable?\n";
-			cout << "Name: ";
+				cout << "What do you want to name your variable?\n";
+				cout << "Name: ";
 				getline(cin, bool_expr);
+				cout << "What do you want it to equal too? EX: \"Hello World\"\n";
+				cout << "Value: ";
+				getline(cin, bool_expr1);
 
-				trans_sentence(sub, bool_expr);
+				trans_sentence(sub, bool_expr, bool_expr1);
 			}
 
 			else if (cmd == "letter:" || cmd == "letter")
 			{
-			cout << "What do you want to name your variable?\n";
-			cout << "Name: ";
+				cout << "What do you want to name your variable?\n";
+				cout << "Name: ";
 				getline(cin, bool_expr);
+				cout << "What do you want it to equal too? EX: \"Hello World\"\n";
+				cout << "Value: ";
+				getline(cin, bool_expr1);
 
-				trans_letter(sub, bool_expr);
+				trans_letter(sub, bool_expr, bool_expr1);
 			}
 
 			// These are commands that give you the ability to make commands such as equal signs.
@@ -464,57 +479,56 @@ public:
 
 	}
 
-	virtual void trans_value(string expr, string bool_expr)
+	virtual void trans_value(string expr, string bool_expr, string bool_expr1)
 	{
 		cout << "\n";
 		cout << "int main ()\n";
 		cout << "{\n";
-		
-		cout << "int " << bool_expr << endl;
+		cout << "int " << bool_expr << " = " << bool_expr1 << endl;
 		cout << "}\n";
 		getStatements();
 
 	}
 
-	virtual void trans_bigValue(string expr, string bool_expr)
+	virtual void trans_bigValue(string expr, string bool_expr, string bool_expr1)
 	{
 		cout << "\n";
 		cout << "int main ()\n";
 		cout << "{\n";
-		cout << "double " << bool_expr << endl;
+		cout << "double " << bool_expr << " = " << bool_expr1 << endl;
 		cout << "}\n";
 		getStatements();
 
 	}
 
-	virtual void trans_pointValue(string expr, string bool_expr)
+	virtual void trans_pointValue(string expr, string bool_expr, string bool_expr1)
 	{
 		cout << "\n";
 		cout << "int main ()\n";
 		cout << "{\n";
-		cout << "float " << bool_expr << endl;
+		cout << "float " << bool_expr << " = " << bool_expr1 << endl;
 		cout << "}\n";
 		getStatements();
 
 	}
 
-	virtual void trans_sentence(string expr, string bool_expr)
+	virtual void trans_sentence(string expr, string bool_expr, string bool_expr1)
 	{
 		cout << "\n";
 		cout << "int main ()\n";
 		cout << "{\n";
-		cout << "string " << bool_expr << endl;
+		cout << "string " << bool_expr << " = " << bool_expr1 << endl;
 		cout << "}\n";
 		getStatements();
 
 	}
 
-	virtual void trans_letter(string expr, string bool_expr)
+	virtual void trans_letter(string expr, string bool_expr, string bool_expr1)
 	{
 		cout << "\n";
 		cout << "int main ()\n";
 		cout << "{\n";
-		cout << "char " << bool_expr << endl;
+		cout << "char " << bool_expr << " = " << bool_expr1 << endl;
 		cout << "}\n";
 		getStatements();
 
@@ -679,56 +693,56 @@ public:
 
 	}
 
-	virtual void trans_value(string expr, string bool_expr)
+	virtual void trans_value(string expr, string bool_expr, string bool_expr1)
 	{
 		cout << "\n";
 		cout << "public class Main\n";
 		cout << "{\n";
-		cout << "int " << bool_expr << endl;
+		cout << "int " << bool_expr << " = " << bool_expr1 << endl;
 		cout << "}\n";
 		getStatements();
 
 	}
 
-	virtual void trans_bigValue(string expr, string bool_expr)
+	virtual void trans_bigValue(string expr, string bool_expr, string bool_expr1)
 	{
 		cout << "\n";
 		cout << "public class Main\n";
 		cout << "{\n";
-		cout << "double " << bool_expr << endl;
+		cout << "double " << bool_expr << " = " << bool_expr1 << endl;
 		cout << "}\n";
 		getStatements();
 
 	}
 
-	virtual void trans_pointValue(string expr, string bool_expr)
+	virtual void trans_pointValue(string expr, string bool_expr, string bool_expr1)
 	{
 		cout << "\n";
 		cout << "public class Main\n";
 		cout << "{\n";
-		cout << "float " << bool_expr << endl;
+		cout << "float " << bool_expr << " = " << bool_expr1 << endl;
 		cout << "}\n";
 		getStatements();
 
 	}
 
-	virtual void trans_sentence(string expr, string bool_expr)
+	virtual void trans_sentence(string expr, string bool_expr, string bool_expr1)
 	{
 		cout << "\n";
 		cout << "public class Main\n";
 		cout << "{\n";
-		cout << "string " << bool_expr << endl;
+		cout << "string " << bool_expr << " = " << bool_expr1 << endl;
 		cout << "}\n";
 		getStatements();
 
 	}
 
-	virtual void trans_letter(string expr, string bool_expr)
+	virtual void trans_letter(string expr, string bool_expr, string bool_expr1)
 	{
 		cout << "\n";
 		cout << "public class Main\n";
 		cout << "{\n";
-		cout << "char " << bool_expr << endl;
+		cout << "char " << bool_expr << " = " << bool_expr1 << endl;
 		cout << "}\n";
 		getStatements();
 
@@ -873,37 +887,37 @@ public:
 		getStatements();
 	}
 
-	virtual void trans_value(string expr, string bool_expr)
+	virtual void trans_value(string expr, string bool_expr, string bool_expr1)
 	{
 		cout << "\n";
-		cout << "int(" << expr << ")" << endl;
+		cout << expr << " = " << bool_expr1 << endl;
 		getStatements();
 	}
 
-	virtual void trans_bigValue(string expr, string bool_expr)
+	virtual void trans_bigValue(string expr, string bool_expr, string bool_expr1)
 	{
 		cout << "\n";
 		cout << "The double value dosn't exist in Python" << endl;
 	}
 
-	virtual void trans_pointValue(string expr, string bool_expr)
+	virtual void trans_pointValue(string expr, string bool_expr, string bool_expr1)
 	{
 		cout << "\n";
-		cout << "float(" << expr << ")" << endl;
+		cout << expr << " = " << bool_expr1 << endl;
 		getStatements();
 	}
 
-	virtual void trans_sentence(string expr, string bool_expr)
+	virtual void trans_sentence(string expr, string bool_expr, string bool_expr1)
 	{
 		cout << "\n";
-		cout << "str("<< expr << ")" << endl;
+		cout << expr << " = " << bool_expr1 << endl;
 		getStatements();
 	}
 
-	virtual void trans_letter(string expr, string bool_expr)
+	virtual void trans_letter(string expr, string bool_expr, string bool_expr1)
 	{
 		cout << "\n";
-		cout << expr << " = " << "\"" << bool_expr << "\"" << endl;
+		cout << expr << " = " << bool_expr1 << endl;
 		getStatements();
 	}
 
