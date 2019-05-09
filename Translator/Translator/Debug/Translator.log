@@ -1,5 +1,6 @@
 ﻿  Translator.cpp
-c:\users\ttroxel21\desktop\translator\translator\translator.cpp(379): warning C4129: 'A': unrecognized character escape sequence
-c:\users\ttroxel21\desktop\translator\translator\translator.cpp(1123): warning C4129: 'A': unrecognized character escape sequence
-c:\users\ttroxel21\desktop\translator\translator\translator.cpp(969): warning C4101: 'i': unreferenced local variable
+c:\users\ttroxel21\desktop\translator\translator\translator.cpp(420): warning C4129: 'A': unrecognized character escape sequence
+c:\users\ttroxel21\desktop\translator\translator\translator.cpp(40): warning C4018: '<': signed/unsigned mismatch
+c:\users\ttroxel21\desktop\translator\translator\translator.cpp(1163): warning C4129: 'A': unrecognized character escape sequence
+c:\users\ttroxel21\desktop\translator\translator\translator.cpp(1009): warning C4101: 'i': unreferenced local variable
   Translator.vcxproj -> C:\Users\ttroxel21\Desktop\Translator\Debug\Translator.exe
