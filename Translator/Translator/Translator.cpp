@@ -19,15 +19,13 @@ public:
 	virtual void trans_bigValue(string expr, string bool_expr, string bool_expr1) = 0;
 	virtual void trans_pointValue(string expr, string bool_expr, string bool_expr1) = 0;
 	virtual void trans_sentence(string expr, string bool_expr, string bool_expr1) = 0;
-	virtual void trans_letter(string expr, string bool_expr, string bool_expr1) = 0;
 	virtual void trans_equal(string expr, string bool_expr1, string bool_expr2) = 0;
 	virtual void trans_equivalent(string expr, string bool_expr1, string bool_expr2) = 0;
 	virtual void trans_notEquivalent(string expr, string bool_expr1, string bool_expr2) = 0;
-	virtual void trans_module(string expr, string bool_expr1, string bool_expr2) = 0;
-	virtual void trans_subtract(string expr, string bool_expr1, string bool_expr2) = 0;
-	virtual void trans_add(string expr, string bool_expr1, string bool_expr2) = 0;
-	virtual void trans_multiply(string expr, string bool_expr1, string bool_expr2) = 0;
-	virtual void trans_divide(string expr, string bool_expr1, string bool_expr2) = 0;
+	virtual void trans_subtract(string expr, string bool_expr, string bool_expr1, string bool_expr2) = 0;
+	virtual void trans_add(string expr, string bool_expr, string bool_expr1, string bool_expr2) = 0;
+	virtual void trans_multiply(string expr, string bool_expr, string bool_expr1, string bool_expr2) = 0;
+	virtual void trans_divide(string expr, string bool_expr, string bool_expr1, string bool_expr2) = 0;
 
 	string RemoveSemi(string bool_expr)
 	{
@@ -270,19 +268,6 @@ public:
 				trans_sentence(sub, bool_expr, new_bool_expr1);
 			}
 
-			else if (cmd == "letter:" || cmd == "letter")
-			{
-				cout << "What do you want to name your variable?\n";
-				cout << "Letter: ";
-				getline(cin, bool_expr);
-				cout << "What do you want it to equal too? EX: \'Hello World\'\n";
-				cout << "Sentence: ";
-				getline(cin, bool_expr1);
-
-				string new_bool_expr1 = RemoveSemi(bool_expr1);
-				trans_letter(sub, bool_expr, new_bool_expr1);
-			}
-
 			// These are commands that give you the ability to make commands such as equal signs.
 			else if (cmd == "equal:" || cmd == "equal")
 			{
@@ -320,64 +305,73 @@ public:
 				trans_notEquivalent(sub, bool_expr1, new_bool_expr2);
 			}
 
-			else if (cmd == "module:" || cmd == "module")
-			{
-				cout << "What two numbers do you want make module to each other\n";
-				cout << "Number: ";
-				getline(cin, bool_expr1);
-				cout << "Number: ";
-				getline(cin, bool_expr2);
-
-				string new_bool_expr2 = RemoveSemi(bool_expr2);
-				trans_module(sub, bool_expr1, new_bool_expr2);
-			}
-
 			else if (cmd == "subtract:" || cmd == "subtract")
 			{
-				cout << "What two numbers do you want make subtract each other\n";
-				cout << "Number: ";
-				getline(cin, bool_expr1);
-				cout << "Number: ";
-				getline(cin, bool_expr2);
+			cout << "First, you must set up an int value\n";
+			cout << "What do you want to name your int? (a letter): ";
+			getline(cin, bool_expr);
+			cout << "What do you want it to equal to?";
+			cout << "Number: ";
+			getline(cin, bool_expr1);
+			cout << "What other number do you subtract?\n";
+			cout << "Number: ";
+			getline(cin, bool_expr2);
 
-				string new_bool_expr2 = RemoveSemi(bool_expr2);
-				trans_subtract(sub, bool_expr1, new_bool_expr2);
+			string new_bool_expr2 = RemoveSemi(bool_expr2);
+			trans_subtract(sub, bool_expr, bool_expr1, new_bool_expr2);
 			}
 
 			else if (cmd == "add:" || cmd == "add")
 			{
-				cout << "What two numbers do you want make add to each other\n";
-				cout << "Number: ";
-				getline(cin, bool_expr1);
-				cout << "Number: ";
-				getline(cin, bool_expr2);
+			cout << "First, you must set up an int value\n";
+			cout << "What do you want to name your int? (a letter): ";
+			getline(cin, bool_expr);
+			cout << "What do you want it to equal to?";
+			cout << "Number: ";
+			getline(cin, bool_expr1);
+			cout << "What other number do you add?\n";
+			cout << "Number: ";
+			getline(cin, bool_expr2);
 
-				string new_bool_expr2 = RemoveSemi(bool_expr2);
-				trans_add(sub, bool_expr1, new_bool_expr2);
+			string new_bool_expr2 = RemoveSemi(bool_expr2);
+			trans_add(sub, bool_expr, bool_expr1, new_bool_expr2);
 			}
 
 			else if (cmd == "multiply:" || cmd == "multiply")
 			{
-				cout << "What two numbers do you want make multiply to each other\n";
-				cout << "Number: ";
-				getline(cin, bool_expr1);
-				cout << "Number: ";
-				getline(cin, bool_expr2);
+			cout << "First, you must set up an int value\n";
+			cout << "What do you want to name your int? (a letter): ";
+			getline(cin, bool_expr);
+			cout << "What do you want it to equal to?";
+			cout << "Number: ";
+			getline(cin, bool_expr1);
+			cout << "What other number do you subtract?\n";
+			cout << "Number: ";
+			getline(cin, bool_expr2);
 
-				string new_bool_expr2 = RemoveSemi(bool_expr2);
-				trans_multiply(sub, bool_expr1, new_bool_expr2);
+			string new_bool_expr2 = RemoveSemi(bool_expr2);
+			trans_multiply(sub, bool_expr, bool_expr1, new_bool_expr2);
 			}
 
 			else if (cmd == "divide:" || cmd == "divide")
 			{
-				cout << "What two numbers do you want make divide to each other\n";
-				cout << "Number: ";
-				getline(cin, bool_expr1);
-				cout << "Number: ";
-				getline(cin, bool_expr2);
+			cout << "First, you must set up an int value\n";
+			cout << "What do you want to name your int? (a letter): ";
+			getline(cin, bool_expr);
+			cout << "What do you want it to equal to?";
+			cout << "Number: ";
+			getline(cin, bool_expr1);
+			cout << "What other number do you subtract?\n";
+			cout << "Number: ";
+			getline(cin, bool_expr2);
 
-				string new_bool_expr2 = RemoveSemi(bool_expr2);
-				trans_divide(sub, bool_expr1, new_bool_expr2);
+			string new_bool_expr2 = RemoveSemi(bool_expr2);
+			trans_divide(sub, bool_expr, bool_expr1, new_bool_expr2);
+			}
+
+			else if (cmd == "exit" || cmd == "Exit")
+			{
+				return;
 			}
 
 			else
@@ -454,7 +448,7 @@ public:
 		cout << "\n";
 		cout << "int main ()\n";
 		cout << "{\n";
-		cout << "if (" << expr << " " << expr1 << " " << expr2 << ")\n" << "{\n" << bool_expr << ";" << endl << "}\n";
+		cout << "  if (" << expr << " " << expr1 << " " << expr2 << ")\n" << "  {\n" << "  " << bool_expr << ";" << endl << "  }\n";
 		cout << "}\n";
 		getStatements();
 
@@ -465,7 +459,7 @@ public:
 		cout << "\n";
 		cout << "int main ()\n";
 		cout << "{\n";
-		cout << "else if (" << expr << " " << expr1 << " " << expr2 << ")\n" << "{\n" << bool_expr << ";" << endl << "}\n";
+		cout << "  else if (" << expr << " " << expr1 << " " << expr2 << ")\n" << "  {\n" << "  " << bool_expr << ";" << endl << "  }\n";
 		cout << "}\n";
 		getStatements();
 
@@ -476,7 +470,7 @@ public:
 		cout << "\n";
 		cout << "int main ()\n";
 		cout << "{\n";
-		cout << "else" << endl << bool_expr << ";" << endl;
+		cout << "  else" << endl << "  " << bool_expr << ";" << endl;
 		cout << "}\n";
 		getStatements();
 
@@ -487,7 +481,7 @@ public:
 		cout << "\n";
 		cout << "int main ()\n";
 		cout << "{\n";
-		cout << "for (" << expr1 << " " << "=" << " " << expr3 << "; " << expr4  << " " << expr5 << " " << expr6 << "; " << expr7 << ")\n" << "{\n" << bool_expr << ";" << endl << "}\n";
+		cout << "  for (" << expr1 << " " << "=" << " " << expr3 << "; " << expr4  << " " << expr5 << " " << expr6 << "; " << expr7 << ")\n" << "  {\n" << "  " << bool_expr << ";" << endl << "  }\n";
 		cout << "}\n";
 		getStatements();
 
@@ -499,7 +493,7 @@ public:
 		cout << "int main ()\n";
 		cout << "{\n";
 		cout << expr << " = " << expr2 << endl;
-		cout << "while (" << expr3 << " " << expr4 << " " << expr5 << ")\n" << "{\n" << bool_expr1 << ";" << endl << bool_expr2 << ";" << endl << "}\n";
+		cout << "  while (" << expr3 << " " << expr4 << " " << expr5 << ")\n" << "  {\n" << "  " << bool_expr1 << ";" << endl << "  " << bool_expr2 << ";" << endl << "}\n";
 		cout << "}\n";
 		getStatements();
 
@@ -510,7 +504,7 @@ public:
 		cout << "\n";
 		cout << "int main ()\n";
 		cout << "{\n";
-		cout << "int " << bool_expr << " = " << bool_expr1 << ";" << endl;
+		cout << "  int " << "  " << bool_expr << " = " << bool_expr1 << ";" << endl;
 		cout << "}\n";
 		getStatements();
 
@@ -521,7 +515,7 @@ public:
 		cout << "\n";
 		cout << "int main ()\n";
 		cout << "{\n";
-		cout << "double " << bool_expr << " = " << bool_expr1 << ";" << endl;
+		cout << "  double " << "  " << bool_expr << " = " << bool_expr1 << ";" << endl;
 		cout << "}\n";
 		getStatements();
 
@@ -532,7 +526,7 @@ public:
 		cout << "\n";
 		cout << "int main ()\n";
 		cout << "{\n";
-		cout << "float " << bool_expr << " = " << bool_expr1 << ";" << endl;
+		cout << "  float " << "  " << bool_expr << " = " << bool_expr1 << ";" << endl;
 		cout << "}\n";
 		getStatements();
 
@@ -543,18 +537,7 @@ public:
 		cout << "\n";
 		cout << "int main ()\n";
 		cout << "{\n";
-		cout << "string " << bool_expr << " = " << bool_expr1 << ";" << endl;
-		cout << "}\n";
-		getStatements();
-
-	}
-
-	virtual void trans_letter(string expr, string bool_expr, string bool_expr1)
-	{
-		cout << "\n";
-		cout << "int main ()\n";
-		cout << "{\n";
-		cout << "char " << bool_expr << " = " << bool_expr1 << ";" << endl;
+		cout << "  string " << bool_expr << " = " << bool_expr1 << ";" << endl;
 		cout << "}\n";
 		getStatements();
 
@@ -565,7 +548,7 @@ public:
 		cout << "\n";
 		cout << "int main ()\n";
 		cout << "{\n";
-		cout << bool_expr1 << " = " << bool_expr2 << ";" << endl;
+		cout << "  int " << bool_expr1 << " = " << bool_expr2 << ";" << endl;
 		cout << "}\n";
 		getStatements();
 
@@ -576,7 +559,7 @@ public:
 		cout << "\n";
 		cout << "int main ()\n";
 		cout << "{\n";
-		cout << bool_expr1 << " == " << bool_expr2 << ";" << endl;
+		cout << "  int " << bool_expr1 << " == " << bool_expr2 << ";" << endl;
 		cout << "}\n";
 		getStatements();
 
@@ -587,67 +570,55 @@ public:
 		cout << "\n";
 		cout << "int main ()\n";
 		cout << "{\n";
-		cout << bool_expr1 << " != " << bool_expr2 << ";" << endl;
+		cout << "  int " << bool_expr1 << " != " << bool_expr2 << ";" << endl;
 		cout << "}\n";
 		getStatements();
 
 	}
 
-	virtual void trans_module(string expr, string bool_expr1, string bool_expr2)
+	virtual void trans_subtract(string expr, string bool_expr, string bool_expr1, string bool_expr2)
 	{
 		cout << "\n";
 		cout << "int main ()\n";
 		cout << "{\n";
-		cout << bool_expr1 << " % " << bool_expr2 << ";" << endl;
+		cout << "  int " << bool_expr << " = " << bool_expr1 << " - " << bool_expr2 << ";" << endl;
 		cout << "}\n";
 		getStatements();
 
 	}
 
-	virtual void trans_subtract(string expr, string bool_expr1, string bool_expr2)
+	virtual void trans_add(string expr, string bool_expr, string bool_expr1, string bool_expr2)
 	{
 		cout << "\n";
 		cout << "int main ()\n";
 		cout << "{\n";
-		cout << bool_expr1 << " - " << bool_expr2 << ";" << endl;
+		cout << "  int " << bool_expr << " = " << bool_expr1 << " + " << bool_expr2 << ";" << endl;
 		cout << "}\n";
 		getStatements();
 
 	}
 
-	virtual void trans_add(string expr, string bool_expr1, string bool_expr2)
+	virtual void trans_multiply(string expr, string bool_expr, string bool_expr1, string bool_expr2)
 	{
 		cout << "\n";
 		cout << "int main ()\n";
 		cout << "{\n";
-		cout << bool_expr1 << " + " << bool_expr2 << ";" << endl;
+		cout << "  int " << bool_expr << " = " << bool_expr1 << " * " << bool_expr2 << ";" << endl;
 		cout << "}\n";
 		getStatements();
 
 	}
 
-	virtual void trans_multiply(string expr, string bool_expr1, string bool_expr2)
+	virtual void trans_divide(string expr, string bool_expr, string bool_expr1, string bool_expr2)
 	{
 		cout << "\n";
 		cout << "int main ()\n";
 		cout << "{\n";
-		cout << bool_expr1 << " * " << bool_expr2 << ";" << endl;
+		cout << "  int " << bool_expr << " = " << bool_expr1 << " / " << bool_expr2 << ";" << endl;
 		cout << "}\n";
 		getStatements();
 
 	}
-
-	virtual void trans_divide(string expr, string bool_expr1, string bool_expr2)
-	{
-		cout << "\n";
-		cout << "int main ()\n";
-		cout << "{\n";
-		cout << bool_expr1 << " / " << bool_expr2 << ";" << endl;
-		cout << "}\n";
-		getStatements();
-
-	}
-
 
 };
 
@@ -659,7 +630,10 @@ public:
 		cout << "\n";
 		cout << "public class Main\n";
 		cout << "{\n";
-		cout << "System.out.print(\"" << msg << "\");\n";
+		cout << " public static void main(String[] args)\n";
+		cout << " {\n";
+		cout << "  System.out.print(\"" << msg << "\");\n";
+		cout << " }\n";
 		cout << "}\n";
 	}
 
@@ -668,7 +642,10 @@ public:
 		cout << "\n";
 		cout << "public class Main\n";
 		cout << "{\n";
-		cout << "if (" << expr << " " << expr1 << " " << expr2 << ")\n" << "{\n" << bool_expr << ";" << endl << "}\n";
+		cout << " public static void main(String[] args)\n";
+		cout << " {\n";
+		cout << "  if (" << expr << " " << expr1 << " " << expr2 << ")\n" << "  {\n" << "  " << bool_expr << ";" << endl << "  }\n";
+		cout << " }\n";
 		cout << "}\n";
 		getStatements();
 
@@ -679,7 +656,10 @@ public:
 		cout << "\n";
 		cout << "public class Main\n";
 		cout << "{\n";
-		cout << "else if (" << expr << " " << expr1 << " " << expr2 << ")\n" << "{\n" << bool_expr << ";" << endl << "}\n";
+		cout << " public static void main(String[] args)\n";
+		cout << " {\n";
+		cout << "  else if (" << expr << " " << expr1 << " " << expr2 << ")\n" << "  {\n" << "  " << bool_expr << ";" << endl << "  }\n";
+		cout << " }\n";
 		cout << "}\n";
 		getStatements();
 
@@ -690,7 +670,10 @@ public:
 		cout << "\n";
 		cout << "public class Main\n";
 		cout << "{\n";
-		cout << "else" << endl << bool_expr << ";" << endl;
+		cout << " public static void main(String[] args)\n";
+		cout << " {\n";
+		cout << "  else" << endl << "  " << bool_expr << ";" << endl;
+		cout << " }\n";
 		cout << "}\n";
 		getStatements();
 
@@ -701,7 +684,10 @@ public:
 		cout << "\n";
 		cout << "public class Main\n";
 		cout << "{\n";
-		cout << "for (" << expr1 << " " << "=" << " " << expr3 << "; " << expr4 << " " << expr5 << " " << expr6 << "; " << expr7 << ")\n" << "{\n" << bool_expr << ";" << endl << "}\n";
+		cout << " public static void main(String[] args)\n";
+		cout << " {\n";
+		cout << "  for (" << expr1 << " " << "=" << " " << expr3 << "; " << expr4 << " " << expr5 << " " << expr6 << "; " << expr7 << ")\n" << "  {\n" << "  " << bool_expr << ";" << endl << "  }\n";
+		cout << " }\n";
 		cout << "}\n";
 		getStatements();
 
@@ -711,9 +697,12 @@ public:
 	{
 		cout << "\n";
 		cout << "public class Main\n";
-		cout << expr << " = " << expr2 << endl;
 		cout << "{\n";
-		cout << "while (" << expr3 << " " << expr4 << " " << expr5 << ")\n" << "{\n" << bool_expr1 << ";" << endl << bool_expr2 << ";" << endl << "}\n";
+		cout << " public static void main(String[] args)\n";
+		cout << " {\n";
+		cout << " " <<expr << " = " << expr2 << endl;
+		cout << "  while (" << expr3 << " " << expr4 << " " << expr5 << ")\n" << "  {\n" << "  " << bool_expr1 << ";" << endl << bool_expr2 << ";" << endl << "  }\n";
+		cout << " }\n";
 		cout << "}\n";
 		getStatements();
 
@@ -724,7 +713,10 @@ public:
 		cout << "\n";
 		cout << "public class Main\n";
 		cout << "{\n";
-		cout << "int " << bool_expr << " = " << bool_expr1 << ";" << endl;
+		cout << " public static void main(String[] args)\n";
+		cout << " {\n";
+		cout << "  int " << bool_expr << " = " << bool_expr1 << ";" << endl;
+		cout << " }\n";
 		cout << "}\n";
 		getStatements();
 
@@ -735,7 +727,10 @@ public:
 		cout << "\n";
 		cout << "public class Main\n";
 		cout << "{\n";
-		cout << "double " << bool_expr << " = " << bool_expr1 << ";" << endl;
+		cout << " public static void main(String[] args)\n";
+		cout << " {\n";
+		cout << "  double " << bool_expr << " = " << bool_expr1 << ";" << endl;
+		cout << " }\n";
 		cout << "}\n";
 		getStatements();
 
@@ -746,7 +741,10 @@ public:
 		cout << "\n";
 		cout << "public class Main\n";
 		cout << "{\n";
-		cout << "float " << bool_expr << " = " << bool_expr1 << ";" << endl;
+		cout << " public static void main(String[] args)\n";
+		cout << " {\n";
+		cout << "  float " << bool_expr << " = " << bool_expr1 << ";" << endl;
+		cout << " }\n";
 		cout << "}\n";
 		getStatements();
 
@@ -757,18 +755,10 @@ public:
 		cout << "\n";
 		cout << "public class Main\n";
 		cout << "{\n";
-		cout << "string " << bool_expr << " = " << bool_expr1 << ";" << endl;
-		cout << "}\n";
-		getStatements();
-
-	}
-
-	virtual void trans_letter(string expr, string bool_expr, string bool_expr1)
-	{
-		cout << "\n";
-		cout << "public class Main\n";
-		cout << "{\n";
-		cout << "char " << bool_expr << " = " << bool_expr1 << ";" << endl;
+		cout << " public static void main(String[] args)\n";
+		cout << " {\n";
+		cout << "  string " << bool_expr << " = " << bool_expr1 << ";" << endl;
+		cout << " }\n";
 		cout << "}\n";
 		getStatements();
 
@@ -779,7 +769,10 @@ public:
 		cout << "\n";
 		cout << "public class Main\n";
 		cout << "{\n";
-		cout << bool_expr1 << " = " << bool_expr2 << ";" << endl;
+		cout << " public static void main(String[] args)\n";
+		cout << " {\n";
+		cout << "  int " << bool_expr1 << " = " << bool_expr2 << ";" << endl;
+		cout << " }\n";
 		cout << "}\n";
 		getStatements();
 
@@ -790,7 +783,10 @@ public:
 		cout << "\n";
 		cout << "public class Main\n";
 		cout << "{\n";
-		cout << bool_expr1 << " == " << bool_expr2 << ";" << endl;
+		cout << " public static void main(String[] args)\n";
+		cout << " {\n";
+		cout << "  int " << bool_expr1 << " == " << bool_expr2 << ";" << endl;
+		cout << " }\n";
 		cout << "}\n";
 		getStatements();
 
@@ -801,67 +797,70 @@ public:
 		cout << "\n";
 		cout << "public class Main\n";
 		cout << "{\n";
-		cout << bool_expr1 << " != " << bool_expr2 << ";" << endl;
+		cout << " public static void main(String[] args)\n";
+		cout << " {\n";
+		cout << "  int " << bool_expr1 << " != " << bool_expr2 << ";" << endl;
+		cout << " }\n";
 		cout << "}\n";
 		getStatements();
 
 	}
 
-	virtual void trans_module(string expr, string bool_expr1, string bool_expr2)
+	virtual void trans_subtract(string expr, string bool_expr, string bool_expr1, string bool_expr2)
 	{
 		cout << "\n";
 		cout << "public class Main\n";
 		cout << "{\n";
-		cout << bool_expr1 << " % " << bool_expr2 << ";" << endl;
+		cout << " public static void main(String[] args)\n";
+		cout << " {\n";
+		cout << "  int " << bool_expr << " = " << bool_expr1 << " - " << bool_expr2 << ";" << endl;
+		cout << " }\n";
 		cout << "}\n";
 		getStatements();
 
 	}
 
-	virtual void trans_subtract(string expr, string bool_expr1, string bool_expr2)
+	virtual void trans_add(string expr, string bool_expr, string bool_expr1, string bool_expr2)
 	{
 		cout << "\n";
 		cout << "public class Main\n";
 		cout << "{\n";
-		cout << bool_expr1 << " - " << bool_expr2 << ";" << endl;
+		cout << " public static void main(String[] args)\n";
+		cout << " {\n";
+		cout << "  int " << bool_expr << " = " << bool_expr1 << " + " << bool_expr2 << ";" << endl;
+		cout << " }\n";
 		cout << "}\n";
 		getStatements();
 
 	}
 
-	virtual void trans_add(string expr, string bool_expr1, string bool_expr2)
+	virtual void trans_multiply(string expr, string bool_expr, string bool_expr1, string bool_expr2)
 	{
 		cout << "\n";
 		cout << "public class Main\n";
 		cout << "{\n";
-		cout << bool_expr1 << " + " << bool_expr2 << ";" << endl;
+		cout << " public static void main(String[] args)\n";
+		cout << " {\n";
+		cout << "  int " << bool_expr << " = " << bool_expr1 << " * " << bool_expr2 << ";" << endl;
+		cout << " }\n";
 		cout << "}\n";
 		getStatements();
 
 	}
 
-	virtual void trans_multiply(string expr, string bool_expr1, string bool_expr2)
+	virtual void trans_divide(string expr, string bool_expr, string bool_expr1, string bool_expr2)
 	{
 		cout << "\n";
 		cout << "public class Main\n";
 		cout << "{\n";
-		cout << bool_expr1 << " * " << bool_expr2 << ";" << endl;
+		cout << " public static void main(String[] args)\n";
+		cout << " {\n";
+		cout << "  int " << bool_expr << " = " << bool_expr1 << " / " << bool_expr2 << ";" << endl;
+		cout << " }\n";
 		cout << "}\n";
 		getStatements();
 
 	}
-
-	virtual void trans_divide(string expr, string bool_expr1, string bool_expr2)
-	{
-		cout << "\n";
-		cout << "public class Main\n";
-		cout << "{\n";
-		cout << bool_expr1 << " / " << bool_expr2 << ";" << endl;
-		cout << "}\n";
-		getStatements();
-
-	}
-
 
 };
 
@@ -940,13 +939,6 @@ public:
 		getStatements();
 	}
 
-	virtual void trans_letter(string expr, string bool_expr, string bool_expr1)
-	{
-		cout << "\n";
-		cout << bool_expr << " = " << bool_expr1 << endl;
-		getStatements();
-	}
-
 	virtual void trans_equal(string expr, string bool_expr1, string bool_expr2)
 	{
 		cout << "\n";
@@ -968,40 +960,34 @@ public:
 		getStatements();
 	}
 
-	virtual void trans_module(string expr, string bool_expr1, string bool_expr2)
+	virtual void trans_subtract(string expr, string bool_expr, string bool_expr1, string bool_expr2)
 	{
 		cout << "\n";
-		cout << bool_expr1 << " % " << bool_expr2 << endl;
+		cout << "print(" << bool_expr1 << " - " << bool_expr2 << ")" << endl;
 		getStatements();
 	}
 
-	virtual void trans_subtract(string expr, string bool_expr1, string bool_expr2)
+	virtual void trans_add(string expr, string bool_expr, string bool_expr1, string bool_expr2)
 	{
 		cout << "\n";
-		cout << bool_expr1 << " - " << bool_expr2 << endl;
+		cout << "print(" << bool_expr1 << " + " << bool_expr2 << ")" << endl;
 		getStatements();
 	}
 
-	virtual void trans_add(string expr, string bool_expr1, string bool_expr2)
+	virtual void trans_multiply(string expr, string bool_expr, string bool_expr1, string bool_expr2)
 	{
 		cout << "\n";
-		cout << bool_expr1 << " + " << bool_expr2 << endl;
+		cout << "print(" << bool_expr1 << " * " << bool_expr2 << ")" << endl;
 		getStatements();
 	}
 
-	virtual void trans_multiply(string expr, string bool_expr1, string bool_expr2)
+	virtual void trans_divide(string expr, string bool_expr, string bool_expr1, string bool_expr2)
 	{
 		cout << "\n";
-		cout << bool_expr1 << " * " << bool_expr2 << endl;
+		cout << "print(" << bool_expr1 << " / " << bool_expr2 << ")" << endl;
 		getStatements();
 	}
 
-	virtual void trans_divide(string expr, string bool_expr1, string bool_expr2)
-	{
-		cout << "\n";
-		cout << bool_expr1 << " / " << bool_expr2 << endl;
-		getStatements();
-	}
 };
 
 void start()
@@ -1031,6 +1017,7 @@ void start()
 	{
 		cout << "What program do you want to learn about? We have C++, Java, or Python" << endl;
 		string prg;
+		cout << "Program: ";
 		getline(cin, prg);
 
 		if (prg == "C++" || prg == "c++" )
@@ -1049,21 +1036,19 @@ void start()
 			cout << "say: = cout << (your sentence) << endl;\n" <<
 				"if: = if (conditions)\n" <<
 				"elseif: = else if (conditions)\n" <<
-				"else: = else (conditions)\n" <<
+				"else: = else\n" <<
 				"for: = for(initialization; condition ; increment/decrement)\n" <<
 				"while: = while (boolean_expression)\n" <<
 				"value: = int (variable)\n" <<
 				"bigValue: = double (variable)\n" <<
 				"pointValue: float (variable)\n" <<
 				"sentence: = string (variable)\n" <<
-				"letter: = char (variable)\n\n" <<
 
 				//Not what I want for the final product, but an ok sub for the time. Come back to this because this is like putting a band-aid over a broken bone
 				"If you want to use any of these, just enter the name." << "Then you will get a promt to enter the two variables that you want and also calculate it for you.\n" <<
 				"equal: = =\n" <<
 				"equivalent: = ==\n" <<
 				"notEquivalent: = !=\n" <<
-				"module: = %\n" <<
 				"subtract: = -\n" <<
 				"add: = +\n" <<
 				"multiply: = *\n" <<
@@ -1078,9 +1063,11 @@ void start()
 		{
 			cout << "\n";
 			cout << "General Info:\n";
-			cout << "Java is extremely similar to C++ in almost every way.\n";
-			cout << "Most code will look something like this:\n";
+			cout << "Java is similar to C++.\n";
+			cout << "All code will look something like this:\n";
 			cout << "public class Main\n";
+			cout << "{\n";
+			cout << "public static void main(String[] args)\n";
 			cout << "{\n";
 			cout << "code\n";
 			cout << "}\n";
@@ -1099,14 +1086,12 @@ void start()
 				"bigValue: = double (variable)\n" <<
 				"pointValue: float (variable)\n" <<
 				"sentence: = string (variable)\n" <<
-				"letter: = char (variable)\n\n" <<
 
 				//Not what I want for the final product, but an ok sub for the time. Come back to this because this is like putting a band-aid over a broken bone
 				"If you want to use any of these, just enter the name." << "Then you will get a promt to enter the two variables that you want and also calculate it for you.\n" <<
 				"equal: = =\n" <<
 				"equivalent: = ==\n" <<
 				"notEquivalent: = !=\n" <<
-				"module: = %\n" <<
 				"subtract: = -\n" <<
 				"add: = +\n" <<
 				"multiply: = *\n" <<
@@ -1120,9 +1105,9 @@ void start()
 		{
 			cout << "\n";
 			cout << "General Info:\n";
-			cout << "Python is both complex and simpler than both Java and  C++.\n";
-			cout << "Python is more englished based, so when you actually read it, is should somewhat read like a book of sorts.\n";
-			cout << "All python scripts will not use \";\" at any point, you will be using \":\" sometimes, but not often.\n";
+			cout << "Python is both complex and simpler than both Java and C++.\n";
+			cout << "Python is a more english based, so when you actually read it, is should somewhat read like a sentence of sorts.\n";
+			cout << "All python scripts (programs) will not use \";\" at any point, you will be using \":\" sometimes, but not often.\n";
 			cout << "Another big difference between Python and the other languages, is that it relies heavily on indentation.\n";
 			cout << "If you miss an indentation, then your program won't work\n\n";
 			cout << "Codeing Info:\n";
@@ -1147,27 +1132,26 @@ void start()
 			cout << "y = 2.8, Python assumes this is a float.\n";
 			cout << "z = 1j Python assumes this is a complex.\n";
 			cout << "However, if you want you can specify what each number is, despite if it is true or not.\n\n";
-			cout << "Despite this however, Python can be written like if it was a C++ or Java Program.\n";
-			cout << "For this project, there will be some sections where, despite working on Python, it will look like you are doing C++";
+			cout << "Python can however be written like if it was a C++ or Java Program.\n";
+			cout << "For this project, there will be some sections where, despite working on Python, it will look like you are doing C++ or Java";
+			cout << "This is done for both simplicity sake, and the fact that one will find it easier to understand after working with C++ or Java, unless you are doing this program first\n";
 			cout << "Code Examples:\n";
 			cout << "say: print(\"your sentence\")\n" <<
 				"if: = if conditions\n" <<
 				"elseif: = elif conditions\n" <<
-				"else: = else conditions\n" <<
+				"else: = else \n" <<
 				"for: = for variable in variable\n" <<
 				"while: = while boolean_expression\n" <<
 				"value: = variable = int(number)\n" <<
-				"bigValue: N/A\n" <<
+				"bigValue: N/A, will be seen as int value\n" <<
 				"pointValue: variable = float(number)\n" <<
 				"sentence: = str = str(number))\n" <<
-				"letter: = N\A\n\n" <<
 
 				//Not what I want for the final product, but an ok sub for the time. Come back to this because this is like putting a band-aid over a broken bone
 				"If you want to use any of these, just enter the name." << "Then you will get a promt to enter the two variables that you want and also calculate it for you.\n" <<
 				"equal: = =\n" <<
 				"equivalent: = ==\n" <<
 				"notEquivalent: = !=\n" <<
-				"module: = %\n" <<
 				"subtract: = -\n" <<
 				"add: = +\n" <<
 				"multiply: = *\n" <<
@@ -1183,11 +1167,6 @@ void start()
 			start();
 		}
 
-	}
-
-	else if(lang == "example")
-	{
-		cout << "";
 	}
 
 	else
@@ -1206,5 +1185,3 @@ int main()
 
 	return 0;
 }
-
-
