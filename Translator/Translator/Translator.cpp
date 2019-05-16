@@ -6,9 +6,11 @@
 #include <vector>
 using namespace std;
 
+
 class Language
 {
 public:
+	//this is where all traslating functions are and there arguments that they take
 	virtual void trans_say(string msg) = 0;
 	virtual void trans_if(string expr, string expr1, string expr2, string bool_expr) = 0;
 	virtual void trans_elseif(string expr, string expr1, string expr2, string bool_expr) = 0;
@@ -27,6 +29,8 @@ public:
 	virtual void trans_multiply(string expr, string bool_expr, string bool_expr1, string bool_expr2) = 0;
 	virtual void trans_divide(string expr, string bool_expr, string bool_expr1, string bool_expr2) = 0;
 
+	//this function checks if you have a ; in certin inputs and checks 
+	//to see if it need to get rid of it because I already put it in there
 	string RemoveSemi(string bool_expr)
 	{
 		int i;
@@ -45,18 +49,24 @@ public:
 		return new_bool_expr;
 	}
 
+	//when the user gets started and enters a command, it check what the user input is and goes through and grabs the right function
 	void getStatements() {
 		bool quit = false;
 		while (!quit)
 		{
+			//this asks and checks what command you want
 			cout << "What command do you want?\n";
 			string cmd;
 			cout << "Command: ";
 			cin >> cmd;
 			cin.ignore();
 
+			//there are many different variables because there are many different inputs that a command could have.
 			string sub, sub1, sub2, sub3, sub4, sub5, sub6, sub7, bool_expr, bool_expr1, bool_expr2;
 			
+			//the trans_(statement) will take the users inputs, depending on the command, and then move to the proper class to output the proper statement
+
+			//output text command
 			if (cmd == "say:" || cmd == "say")
 			{
 				cout << "What do you want your sentence to say: ";
@@ -64,6 +74,7 @@ public:
 				trans_say(sub);
 			}
 
+			//if command
 			else if (cmd == "if:" || cmd == "if")
 			{
 				cout << "What conditions do you want?\n";
@@ -93,6 +104,7 @@ public:
 				trans_if(sub, sub1, sub2, new_bool_expr);
 			}
 
+			//else if command
 			else if (cmd == "elseif:" || cmd == "elseif")
 			{
 				cout << "What conditions do you want?\n";
@@ -122,6 +134,7 @@ public:
 				trans_elseif(sub, sub1, sub2, new_bool_expr);
 			}
 
+			//else command
 			else if (cmd == "else:" || cmd == "else")
 			{
 				cout << "You do not need to make conditions for the else statement\n";
@@ -139,6 +152,7 @@ public:
 				trans_else(sub, sub1, sub2, new_bool_expr);
 			}
 
+			//for loop
 			else if (cmd == "for:" || cmd == "for")
 			{
 				cout << "What conditions do you want?\n";
@@ -177,6 +191,7 @@ public:
 				trans_for(sub1, sub2, sub3, sub4, sub5, sub6, sub7, new_bool_expr);
 			}
 
+			//while loop
 			else if (cmd == "while:" || cmd == "while")
 			{
 				cout << "First you have to set what the variable to be.\n";
@@ -216,6 +231,7 @@ public:
 				trans_while(sub, sub1, sub2, sub3, sub4, sub5, new_bool_expr1, new_bool_expr2);
 			}
 
+			//int value
 			else if (cmd == "value:" || cmd == "value")
 			{
 				cout << "What do you want to name your variable?\n";
@@ -229,6 +245,7 @@ public:
 				trans_value(sub, bool_expr, new_bool_expr1);
 			}
 
+			//doulble value
 			else if (cmd == "bigValue:" || cmd == "bigValue")
 			{
 				cout << "What do you want to name your variable?\n";
@@ -242,6 +259,7 @@ public:
 				trans_bigValue(sub, bool_expr, new_bool_expr1);
 			}
 
+			//float value
 			else if (cmd == "pointValue:" || cmd == "pointValue")
 			{
 				cout << "What do you want to name your variable?\n";
@@ -255,6 +273,7 @@ public:
 				trans_pointValue(sub, bool_expr, new_bool_expr1);
 			}
 
+			//string value
 			else if (cmd == "sentence:" || cmd == "sentence")
 			{
 				cout << "What do you want to name your variable?\n";
@@ -269,6 +288,7 @@ public:
 			}
 
 			// These are commands that give you the ability to make commands such as equal signs.
+			// the = sign
 			else if (cmd == "equal:" || cmd == "equal")
 			{
 				cout << "What two variables do you want make equal to each other\n";
@@ -281,6 +301,7 @@ public:
 				trans_equal(sub, bool_expr1, new_bool_expr2);
 			}
 
+			//the == sign
 			else if (cmd == "equivalent:" || cmd == "equivalent")
 			{
 				cout << "What two variables do you want make equivalent to each other\n";
@@ -293,6 +314,7 @@ public:
 				trans_equivalent(sub, bool_expr1, new_bool_expr2);
 			}
 
+			//the != sign
 			else if (cmd == "notEquivalent:" || cmd == "notEquivalent")
 			{
 				cout << "What two variables do you want make not equivalent to each other\n";
@@ -305,6 +327,7 @@ public:
 				trans_notEquivalent(sub, bool_expr1, new_bool_expr2);
 			}
 
+			// the - sign
 			else if (cmd == "subtract:" || cmd == "subtract")
 			{
 			cout << "First, you must set up an int value\n";
@@ -321,6 +344,7 @@ public:
 			trans_subtract(sub, bool_expr, bool_expr1, new_bool_expr2);
 			}
 
+			//the + sign
 			else if (cmd == "add:" || cmd == "add")
 			{
 			cout << "First, you must set up an int value\n";
@@ -337,6 +361,7 @@ public:
 			trans_add(sub, bool_expr, bool_expr1, new_bool_expr2);
 			}
 
+			//the * sign
 			else if (cmd == "multiply:" || cmd == "multiply")
 			{
 			cout << "First, you must set up an int value\n";
@@ -353,6 +378,7 @@ public:
 			trans_multiply(sub, bool_expr, bool_expr1, new_bool_expr2);
 			}
 
+			//the / sign
 			else if (cmd == "divide:" || cmd == "divide")
 			{
 			cout << "First, you must set up an int value\n";
@@ -369,11 +395,13 @@ public:
 			trans_divide(sub, bool_expr, bool_expr1, new_bool_expr2);
 			}
 
+			//this is ment to exit the program once you enter this
 			else if (cmd == "exit" || cmd == "Exit")
 			{
 				return;
 			}
 
+			//if you type something that isn't a command, it will bring up a list of commands that the user can try
 			else
 			{
 				cout << "Here is a list of commands of possible commands for C++ and Java" << endl;
@@ -431,6 +459,9 @@ public:
 	}
 };
 
+//each class handles inputs differently, so each language gets their own own class to handle the commands
+//C++ and Java will look very similar, so it will look like i copied and pasted code, but they are different in execution
+//Python will look like C++ because it is too complicated to have it look like normal Python. Thankfully it still works just the same.
 class CPP : public Language
 {
 public:
@@ -990,8 +1021,10 @@ public:
 
 };
 
+
 void start()
 {
+	//this is the starting program, this checks and sees what language that you chooses and goes to that class
 	int i;
 	string lang = "";
 
@@ -1013,6 +1046,7 @@ void start()
 		l = new Python();
 	}
 
+	//if the user wants to learn more about a language, they can go here and learn more about a particular question
 	else if (lang == "Info" || lang == "info")
 	{
 		cout << "What program do you want to learn about? We have C++, Java, or Python" << endl;
@@ -1020,6 +1054,7 @@ void start()
 		cout << "Program: ";
 		getline(cin, prg);
 
+		//if the users types info, then the user then has to choose a language that they want to learn about.
 		if (prg == "C++" || prg == "c++" )
 		{
 			cout << "\n";
@@ -1161,6 +1196,7 @@ void start()
 			start();
 		}
 
+		//displays this if you didn't type something correctly
 		else
 		{
 			cout << "Thats not a language, at least at the time of writing this code." << endl;
@@ -1169,6 +1205,7 @@ void start()
 
 	}
 
+	//this diplays if you mispelled something
 	else
 	{
 		cout << "Try again.\n";
@@ -1178,6 +1215,7 @@ void start()
 	l->getStatements();
 }
 
+//where it grabs the void start function
 int main()
 {
 	cout << "To get started, type \"Info\".\n";
